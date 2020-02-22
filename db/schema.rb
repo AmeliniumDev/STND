@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_20_205229) do
+ActiveRecord::Schema.define(version: 2020_02_20_204525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,16 +25,24 @@ ActiveRecord::Schema.define(version: 2020_02_20_205229) do
     t.string "title"
     t.text "description"
     t.date "deadline"
-    t.time "etc"
+    t.float "etc"
     t.boolean "urgent"
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "company_id"
+    t.bigint "team_id"
     t.bigint "user_id"
-    t.index ["company_id"], name: "index_tasks_on_company_id"
+    t.index ["team_id"], name: "index_tasks_on_team_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "team_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_teams_on_company_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,14 +55,15 @@ ActiveRecord::Schema.define(version: 2020_02_20_205229) do
     t.datetime "updated_at", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "manager", default: "f", null: false
-    t.bigint "company_id"
-    t.index ["company_id"], name: "index_users_on_company_id"
+    t.boolean "manager", default: false, null: false
+    t.bigint "team_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["team_id"], name: "index_users_on_team_id"
   end
 
-  add_foreign_key "tasks", "companies"
+  add_foreign_key "tasks", "teams"
   add_foreign_key "tasks", "users"
-  add_foreign_key "users", "companies"
+  add_foreign_key "teams", "companies"
+  add_foreign_key "users", "teams"
 end

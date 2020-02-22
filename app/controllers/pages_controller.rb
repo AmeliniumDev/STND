@@ -3,4 +3,12 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  # routes.rb => profile route
+
+  # def profile
+  #   @user = current_user
+  # end
+
+  # views/pages/profile.html.erb
 end
