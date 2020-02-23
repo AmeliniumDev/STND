@@ -1,2 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- Background photo -->
+<!-- two buttons / links  -->
+
+<!-- team_tasks_path(@team) requires team_id, so we are checking if user is signed in -->
+<!-- after signing in we get an error as the view for -->
+<% if user_signed_in? %>
+  <%= link_to "Plan your day", team_tasks_path(current_user.team) %>
+  <%= link_to "Find out more", team_tasks_path(current_user.team) %>
+<% else %>
+  <%= link_to "Plan your day", user_session_path %>
+  <%= link_to "Find out more", user_session_path %>
+<% end %>
