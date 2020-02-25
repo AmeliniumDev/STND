@@ -8,17 +8,20 @@
   <div class="home-video-wrapper">
     <%= video_tag "team.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
     <div class="home-video-text">
-      <h1 class="home">Welcome</h1>
-      <!-- <h1 class="home">ND</h1> -->
-      <p class="home">Prioritise better. Improve your team's workload.</p>
-      <br>
-      <% if user_signed_in? %>
-        <%= link_to "Plan your day", team_tasks_path(current_user.team), class: "links-banner-main" %>
-        <%= link_to "Find out more", team_tasks_path(current_user.team), class: "links-banner-about" %>
-      <% else %>
-        <%= link_to "Plan your day", user_session_path, class: "links-banner-main" %>
-        <%= link_to "Find out more", user_session_path, class: "links-banner-about" %>
-      <% end %>
+      <div class="cancel-opacity">
+        <h1 class="home">Welcome to better team planning.</h1>
+        <!-- <h1 class="home">ND</h1> -->
+        <p class="home">Become a master in prioritizing your team's workload.</p>
+        <div class="banner-button-lined">
+          <% if user_signed_in? %>
+            <%= link_to "Plan your day", team_tasks_path(current_user.team), class: "links-banner-main" %>
+            <%= link_to "Find out more", team_tasks_path(current_user.team), class: "links-banner-about" %>
+          <% else %>
+            <%= link_to "Plan your day", user_session_path, class: "links-banner-main" %>
+            <%= link_to "Find out more", user_session_path, class: "links-banner-about" %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 <!-- <div class="banner">
