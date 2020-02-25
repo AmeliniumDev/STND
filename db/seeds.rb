@@ -43,10 +43,30 @@ User.create!(
   team_id: 1
 )
 Task.create!(
+  title: "Hire a replacement for Alex",
+  description: "Before he leaves on the 24th of March",
+  deadline: '2020-03-24',
+  etc: 5,
+  urgent: true,
+  team_id: 1,
+  user_id: 1
+  )
+
+Task.create!(
   title: "Send contracts to Ashurst",
   description: "Contracts need to be sent ASAP to John from marketing at Ashurst",
   deadline: '2020-03-20',
-  etc: 10.5,
+  etc: 15,
+  urgent: true,
+  team_id: 1,
+  user_id: 1
+  )
+
+Task.create!(
+  title: "Write press release for Trippify",
+  description: "Launch is on the 15th",
+  deadline: '2020-03-15',
+  etc: 2,
   urgent: true,
   team_id: 1,
   user_id: 1
