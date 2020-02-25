@@ -1,0 +1,48 @@
+.links-banner-main {
+  background-color: purple;
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  text-decoration:none;
+  color: white;
+  font-size: 20px;
+  border: 2px solid purple;
+  padding: 5px 10px 5px 10px;
+  border-radius: 50px;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  font-weight: bold;
+  margin-bottom: 20p
+  x;
+}
+
+.links-banner-about {
+  // background-color: purple;
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  text-decoration:none;
+  color: white;
+  font-size: 20px;
+  border: 2px solid purple;
+  padding: 5px 10px 5px 10px;
+  border-radius: 50px;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.links-banner-main:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.links-banner-about:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}

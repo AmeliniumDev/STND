@@ -3,10 +3,30 @@
 
 <!-- team_tasks_path(@team) requires team_id, so we are checking if user is signed in -->
 <!-- after signing in we get an error as the view for -->
-<% if user_signed_in? %>
-  <%= link_to "Plan your day", team_tasks_path(current_user.team) %>
-  <%= link_to "Find out more", team_tasks_path(current_user.team) %>
-<% else %>
-  <%= link_to "Plan your day", user_session_path %>
-  <%= link_to "Find out more", user_session_path %>
-<% end %>
+<!-- <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1488998427799-e3362cec87c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80)">
+</div> -->
+  <div class="home-video-wrapper">
+    <%= video_tag "team.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
+    <div class="home-video-text">
+      <h1 class="home">Welcome</h1>
+      <!-- <h1 class="home">ND</h1> -->
+      <p class="home">Prioritise better. Improve your team's workload.</p>
+      <br>
+      <% if user_signed_in? %>
+        <%= link_to "Plan your day", team_tasks_path(current_user.team), class: "links-banner-main" %>
+        <%= link_to "Find out more", team_tasks_path(current_user.team), class: "links-banner-about" %>
+      <% else %>
+        <%= link_to "Plan your day", user_session_path, class: "links-banner-main" %>
+        <%= link_to "Find out more", user_session_path, class: "links-banner-about" %>
+      <% end %>
+    </div>
+  </div>
+<!-- <div class="banner">
+  <div class="jumbotron jumbotron-fluid">
+    <video autoplay="true" loop="loop" muted="muted" width="100%">
+      <source src="/assets/videos/team_purple.mp4" type="video/mp4">
+      Sorry, your browser doesn't support embedded videos.
+    </video>
+  </div>
+</div>
+ -->
