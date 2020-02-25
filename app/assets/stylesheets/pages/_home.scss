@@ -1,1 +1,48 @@
 // Specific CSS for your home-page
+// .banner {
+//   position:relative;
+//   background-size: cover;
+//   // z-index: 0;
+//   height: 100vh;
+//   width: 100%;
+// }
+
+.home-video-wrapper {
+height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.home_video {
+ width: 100vw;
+ height: 100vh;
+ position: absolute;
+ object-fit: cover;
+ top: 0;
+ z-index: 1;
+}
+
+.home-video-text {
+  z-index: 2;
+  // background-color: grey;
+  // width: 400px;
+  // height: 200px;
+  // opacity: 0.9;
+}
+
+h1.home {
+  padding-bottom: 1px;
+  color: white;
+  font-family: $landing-h1-3;
+  font-size: 70px;
+}
+
+p.home {
+  padding-bottom: 1px;
+  color: white;
+  font-family: $landing-h1-3;
+  font-size: 25\px;
+}
+
