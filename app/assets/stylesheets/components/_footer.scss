@@ -1,0 +1,20 @@
+.footer {
+  background: lighten($navbar-background, 15%);
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-links .fab{
+  color: $navbar-button;
+  font-size: 20px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.footer-copyright {
+  font-size: 12px;
+  opacity: 0.6;
+}
