@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   # end
 
   resources :teams, only: [:show] do
-    resources :tasks, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :tasks, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+      collection do
+        # creating a route for user tasks in a team
+        get 'user_tasks'
+      end
+    end
   end
 
   root to: 'pages#home'

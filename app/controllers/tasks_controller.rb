@@ -1,16 +1,16 @@
 class TasksController < ApplicationController
+  before_action :find_team, only: %i[index new create user_tasks]
+
   def index
-    @tasks = Task.all
-    # @tasks = Task.where(user: current_user)
+    # showing tasks only belonging to the team
+    @tasks = Task.where(team: @team)
   end
 
   def new
-    @team = Team.find(params[:team_id])
     @task = Task.new
   end
 
   def create
-    @team = Team.find(params[:team_id])
     @task = Task.new(task_params)
     @task.team = @team
     if @task.save
@@ -42,9 +42,17 @@ class TasksController < ApplicationController
     redirect_to team_tasks_path
   end
 
+  def user_tasks
+    @tasks = Task.where(user: current_user, team: @team)
+  end
+
   private
 
   def task_params
     params.require(:task).permit(:user, :title, :description, :deadline, :etc, :urgent)
+  end
+
+  def find_team
+    @team = Team.find(params[:team_id])
   end
 end

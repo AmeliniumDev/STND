@@ -5,12 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Clean the database"
+
+Task.all.destroy_all
+User.all.destroy_all
+Team.all.destroy_all
+Company.all.destroy_all
+
+puts "Seed the database"
 
 Company.create!(
   name: "STND"
 )
 Team.create!(
   team_name: "Developers",
+  company_id: 1
+)
+Team.create!(
+  team_name: "Frontend",
   company_id: 1
 )
 User.create!(
@@ -42,6 +54,14 @@ User.create!(
   last_name: "Rishi",
   team_id: 1
 )
+User.create!(
+  password: '123456',
+  email: "a@l.com",
+  first_name: "Amy",
+  last_name: "Lucky",
+  manager: true,
+  team_id: 2
+)
 Task.create!(
   title: "Hire a replacement for Alex",
   description: "Before he leaves on the 24th of March",
@@ -51,7 +71,6 @@ Task.create!(
   team_id: 1,
   user_id: 1
   )
-
 Task.create!(
   title: "Send contracts to Ashurst",
   description: "Contracts need to be sent ASAP to John from marketing at Ashurst",
@@ -61,7 +80,6 @@ Task.create!(
   team_id: 1,
   user_id: 1
   )
-
 Task.create!(
   title: "Write press release for Trippify",
   description: "Launch is on the 15th",
@@ -69,5 +87,16 @@ Task.create!(
   etc: 2,
   urgent: true,
   team_id: 1,
+  user_id: 2
+  )
+Task.create!(
+  title: "Task for team 2",
+  description: "Launch is on the 15th",
+  deadline: '2020-03-15',
+  etc: 2,
+  urgent: true,
+  team_id: 2,
   user_id: 1
   )
+
+puts "All done. Happy coding :)"

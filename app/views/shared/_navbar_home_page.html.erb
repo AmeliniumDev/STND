@@ -34,7 +34,8 @@
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Your profile", "#", class: "dropdown-item" %>
-            <%= link_to "Help", "#", class: "dropdown-item" %>
+            <!-- created temporary link to user tasks in help !!!!!TO CHANGE!!!!! -->
+            <%= link_to "Help", user_tasks_team_tasks_path, class: "dropdown-item" %>
             <%= link_to "Settings", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
