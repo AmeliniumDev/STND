@@ -19,46 +19,68 @@
 
 .headers {
   display: flex;
-  // margin: 15px;
 }
 
 .content-task {
   margin: 15px;
 }
 
-.content-task-title {
-  margin: 7px;
-  width: 250px;
-  height: 40  px;
-  background-color: #EAECFF;
-  border-radius: 10px;
+.task-font {
+  font-size: 10px;
+}
+
+.header-font {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  background-color: #5158FE !important;
 }
 
 .content-task-deadline {
   margin: 7px;
-  width: 120px;
+  width: 15%;
   height: 40px;
   background-color: #EAECFF;
   border-radius: 10px;
+  padding: 10px;
 }
 
-.content-task-etc {
-  margin: 7px;
-  width: 200px;
-  height: 40px;
-  background-color: #EAECFF;
-  border-radius: 10px;
-}
-
-.content-task-urgent-header{
+.content-task-urgent {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 40px;
   border-radius: 10px;
+  padding: 10px;
+  margin: 7px;
+  background-color: #EAECFF;
+  width: 15%;
 }
 
-.header-font {
-  background-color: #5158FE;
-  color: white;
+.content-task-title {
+  margin: 7px;
+  height: 40  px;
+  background-color: #EAECFF;
+  border-radius: 10px;
+  padding: 10px;
+  width: 40%;
 }
+
+.content-task-etc {
+  margin: 7px;
+  width: 15%;
+  height: 40px;
+  background-color: #EAECFF;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.content-task-owner {
+  margin: 7px;
+  width: 15%;
+  height: 40px;
+  background-color: #EAECFF;
+  border-radius: 10px;
+  padding: 10px;
+}
+
