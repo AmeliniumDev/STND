@@ -14,7 +14,8 @@
       <% if user_signed_in? %>
         <li class="nav-item active">
           <a class="navbar-brand" href="#">
-            <i class="fas fa-plus-square"></i>
+            <i class="fas fa-plus-circle" data-toggle="modal" data-target="#exampleModal"></i>
+            <%= render "shared/taskcreate" %>
           </a>
         </li>
         <li class="nav-item active">

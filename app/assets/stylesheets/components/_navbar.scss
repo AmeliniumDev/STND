@@ -41,6 +41,10 @@
   width: 80px;
 }
 
+a.nav-link {
+  color: white;
+}
+
 .navbar-light .navbar-nav .nav-link  {
   color: white;
 }
@@ -62,6 +66,6 @@
   color: $navbar-button;
 }
 
-.fa-plus-square {
+.fa-plus-circle {
   color: $navbar-button;
 }
