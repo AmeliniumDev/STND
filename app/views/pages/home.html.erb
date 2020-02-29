@@ -5,13 +5,17 @@
 <!-- after signing in we get an error as the view for -->
 <!-- <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1488998427799-e3362cec87c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80)">
 </div> -->
+  <!-- Rendering home page navbar -->
+  <% content_for :navbar do %>
+      <%= render 'shared/navbar_home_page' %>
+ <% end %>
   <div class="home-video-wrapper">
     <%= video_tag "team.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
     <div class="home-video-text">
       <div class="cancel-opacity">
-        <h1 class="home">Welcome to better team planning.</h1>
+        <h1 class="home">Welcome to better planning.</h1>
         <!-- <h1 class="home">ND</h1> -->
-        <p class="home">Become a master in prioritizing your team's workload.</p>
+        <p class="home">Tired of sorting your tasks? Set the deadline and we will prioritise it for you.</p>
         <div class="banner-button-lined">
           <% if user_signed_in? %>
             <%= link_to "Plan your day", team_tasks_path(current_user.team), class: "links-banner-main" %>

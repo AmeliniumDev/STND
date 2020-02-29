@@ -5,6 +5,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  // position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .footer-links .fab{

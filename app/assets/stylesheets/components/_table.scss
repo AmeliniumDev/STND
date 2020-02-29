@@ -1,0 +1,69 @@
+// css for container for the tablew page
+.table-page {
+ // TO DO: set the height ot push footer down
+ width: 100%;
+ height: 100vh;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+// table css
+.table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 90%;
+  border-radius: 10px;
+}
+
+.row-task{
+  height: 50px;
+  display: flex;
+}
+
+.headers {
+  display: flex;
+  // margin: 15px;
+}
+
+.content-task {
+  margin: 15px;
+}
+
+.content-task-title {
+  margin: 7px;
+  width: 250px;
+  height: 40  px;
+  background-color: #EAECFF;
+  border-radius: 10px;
+}
+
+.content-task-deadline {
+  margin: 7px;
+  width: 120px;
+  height: 40px;
+  background-color: #EAECFF;
+  border-radius: 10px;
+}
+
+.content-task-etc {
+  margin: 7px;
+  width: 200px;
+  height: 40px;
+  background-color: #EAECFF;
+  border-radius: 10px;
+}
+
+.content-task-urgent-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.header-font {
+  background-color: #5158FE;
+  color: white;
+}

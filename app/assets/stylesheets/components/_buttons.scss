@@ -13,8 +13,9 @@
   transition: opacity 0.3s ease;
   font-weight: bold;
   // margin-bottom: 20px;
-  margin-right: 5px;
+  margin-right: 10px;
 }
+
 
 .links-banner-about {
   // background-color: #F76C6C;
@@ -30,7 +31,14 @@
   opacity: 0.75;
   transition: opacity 0.3s ease;
   font-weight: bold;
+  margin-right: 10px;
   // margin-bottom: 20px;
+}
+
+// small buttons for navbar
+.link-sm {
+  font-size: 15px;
+  padding: 5px 20px 5px 20px;
 }
 
 .links-banner-main:hover {
@@ -48,5 +56,3 @@
   color: white;
   // font-weight: bold;
 }
-
-
