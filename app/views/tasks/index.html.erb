@@ -1,19 +1,19 @@
-<div class="cards-collection">
+<div class="table-page">
 
-  <div class="container-tasks">
+  <div class="table">
       <div class="headers">
-        <h4 class="content-task-title header-font">Title</h4>
         <h4 class="content-task-deadline header-font">Deadline</h4>
-        <h4 class="content-task-etc header-font">Time Needed</h4>
         <h4 class="content-task-urgent-header header-font">Urgent!</h4>
+        <h4 class="content-task-title header-font">Title</h4>
+        <h4 class="content-task-etc header-font">Time to complete</h4>
       </div>
         <% @tasks.each do |task| %>
           <div class="row-task">
+            <div class="content-task-deadline"><p><%= task.deadline %></p></div>
+            <div class="content-task-urgent"><input type="checkbox" name="urgent"></div>
             <div class="content-task-title"><%= task.title %></div>
             <!-- <div class="content-task hidden"><p><%= task.description %></p></div> -->
-            <div class="content-task-deadline"><p><%= task.deadline %></p></div>
             <div class="content-task-etc"><p><%= task.etc %></p></div>
-            <div class="content-task-urgent"><input type="checkbox" name="urgent"></div>
           </div>
         <% end %>
 
