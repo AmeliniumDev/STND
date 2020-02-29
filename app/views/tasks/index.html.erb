@@ -9,14 +9,18 @@
         <h4 class="header-font content-task-owner-header">Owner</h4>
       </div>
         <% @tasks.each do |task| %>
-          <div class="row-task">
-            <div class="content-task-deadline task-font"><p><%= task.deadline %></p></div>
-            <div class="content-task-urgent task-font"><input type="checkbox" name="urgent"></div>
-            <div class="content-task-title task-font"><%= task.title %></div>
-            <!-- <div class="content-task hidden"><p><%= task.description %></p></div> -->
-            <div class="content-task-etc task-font"><p><%= task.etc %></p></div>
-            <div class="content-task-owner task-font"><p>To-do</p></div>
+          <div  class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
+            <div class="row-task">
+              <div class="content-task-deadline task-font"><p><%= task.deadline %></p></div>
+              <div class="content-task-urgent task-font"><input type="checkbox" name="urgent"></div>
+              <div class="content-task-title task-font"><%= task.title %></div>
+              <div class="content-task-etc task-font"><p><%= task.etc %></p></div>
+              <div class="content-task-owner task-font"><p>To-do</p></div>
+            </div>
           </div>
+          <div  class="collapse div-collapsed" id=<%= "task#{task.id}" %>>
+    <%= task.description %>
+  </div>
         <% end %>
 
   </div>
