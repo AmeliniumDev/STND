@@ -90,6 +90,14 @@ Task.create!(
   user_id: 2
   )
 Task.create!(
+  title: "Write press release for Trippify",
+  description: "Launch is on the 15th",
+  deadline: '2020-03-15',
+  etc: 2,
+  urgent: true,
+  team_id: 1
+  )
+Task.create!(
   title: "Task for team 2",
   description: "Launch is on the 15th",
   deadline: '2020-03-15',
