@@ -3,7 +3,7 @@
   <div class="table">
       <div class="headers">
         <h4 class="header-font content-task-deadline-header">Deadline</h4>
-        <h4 class="header-font content-task-urgent-header">Urgent?</h4>
+        <h4 class="header-font content-task-urgent-header"><i class="fas fa-arrow-circle-up header"></i></h4>
         <h4 class="header-font content-task-title-header">Title</h4>
         <h4 class="header-font content-task-etc-header">Time needed</h4>
         <h4 class="header-font content-task-owner-header">Owner</h4>
@@ -11,7 +11,13 @@
         <% @tasks.each do |task| %>
           <div class="row-task">
             <div class="content-task-deadline task-font"><p><%= task.deadline %></p></div>
-            <div class="content-task-urgent task-font"><input type="checkbox" name="urgent"></div>
+            <div class="content-task-urgent task-font">
+              <% if task.urgent? %>
+              <i class="fas fa-arrow-circle-up"></i>
+              <% else %>
+              <i class="far fa-circle"></i>
+              <% end %>
+            </div>
             <div class="content-task-title task-font"><%= task.title %></div>
             <!-- <div class="content-task hidden"><p><%= task.description %></p></div> -->
             <div class="content-task-etc task-font"><p><%= task.etc %></p></div>
