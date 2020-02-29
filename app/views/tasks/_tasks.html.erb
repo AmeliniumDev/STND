@@ -15,7 +15,24 @@
             <div class="content-task-title task-font"><%= task.title %></div>
             <!-- <div class="content-task hidden"><p><%= task.description %></p></div> -->
             <div class="content-task-etc task-font"><p><%= task.etc %></p></div>
-            <div class="content-task-owner task-font"><p>To-do</p></div>
+            <div class="content-task-owner task-font">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <!-- if task.user? true: Avatar / false: Not Assigned -->
+                  <% if task.user.nil? %>
+                    Not Assigned
+                  <% else %>
+                    <!-- user.each do -->
+                    Avatar
+                  <% end %>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+            </div>
           </div>
         <% end %>
 
