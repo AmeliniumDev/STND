@@ -1,6 +1,12 @@
 .alert {
   position: fixed;
-  bottom: 16px;
+  top: 50px;
   right: 16px;
   z-index: 1000;
+  border-radius: 50px;
+  background: lighten($navbar-background, 15%);
+  color: white;
+  border-color: lighten($navbar-background, 15%);
+  font-size: 15px;
+  // padding: 5px 30px 5px 30px;
 }

@@ -43,13 +43,21 @@
 }
 
 .btn-form-login {
-  background-color: $navbar-background;
+  background: lighten($navbar-background, 3%);
   border-radius: 50px;
-  border-color: $navbar-background;
+  border-color: lighten($navbar-background, 3%);
   padding: 0px;
 }
 
-.input {
+.btn-form-login:hover {
+  background: $navbar-background;
+}
+
+.btn {
+  color: white;
+}
+
+.btn:hover {
   color: white;
 }
 
