@@ -1,7 +1,9 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-pages">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-home">
   <div>
     <a class="navbar-brand" href="#">
-      <i class="fas fa-tasks"></i>
+      <!-- to add logo below -->
+      <p>ST&ND</p>
+      <!-- <i class="fas fa-tasks"></i> -->
     </a>
   </div>
 
@@ -12,20 +14,21 @@
   <div class="navbar-collapse">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <a class="navbar-brand" href="#">
+        <li class="">
+          <%= link_to "Plan your day", team_tasks_path(current_user.team), class: "links-banner-main link-sm" %>
+          <!-- <a class="navbar-brand" href="#">
             <i class="fas fa-plus-square"></i>
-          </a>
+          </a> -->
         </li>
-        <li class="nav-item active">
-          <a class="navbar-brand" href="#">
+        <li class="">
+          <!-- <a class="navbar-brand" href="#">
             <i class="fas fa-chart-line"></i>
-          </a>
+          </a> -->
         </li>
-        <li class="nav-item">
-          <a class="navbar-brand" href="#">
+        <li class="">
+          <!-- <a class="navbar-brand" href="#">
             <i class="fas fa-users"></i>
-          </a>
+          </a> -->
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -38,7 +41,8 @@
         </li>
       <% else %>
         <li class="">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Find out more", user_session_path, class: "links-banner-about link-sm" %>
+          <%= link_to "Login", user_session_path, class: "links-banner-main link-sm" %>
         </li>
       <% end %>
     </ul>
