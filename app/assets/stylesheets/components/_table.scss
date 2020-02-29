@@ -1,6 +1,11 @@
 // css for container for the tablew page
 .table-page {
  // TO DO: set the height ot push footer down
+ width: 100%;
+ height: 100vh;
+ display: flex;
+ align-items: center;
+ justify-content: center;
 }
 
 // table css
