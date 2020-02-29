@@ -12,9 +12,9 @@ class TasksController < ApplicationController
   def create
     @team = Team.find(params[:team_id])
     @task = Task.new(task_params)
-    @team.task = @task
+    @task.team = @team
     if @task.save
-      redirect_to team_task_path(@task)
+      redirect_to team_tasks_path(@team)
     else
       render :new
     end

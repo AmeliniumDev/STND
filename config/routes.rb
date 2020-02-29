@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   #   end
   # end
 
-  resources :team, only: [:show] do
+  resources :teams, only: [:show] do
     resources :tasks, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   end
 
