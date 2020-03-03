@@ -29,8 +29,14 @@
             </div>
           </div>
           <div  class="collapse div-collapsed" id=<%= "task#{task.id}" %>>
-    <%= task.description %>
-  </div>
+            <div class="task-description">
+              <%= task.description %>
+            </div>
+            <div class="edit-delete">
+              <i class="fas fa-trash-alt"></i>
+              <i class="fas fa-pencil-alt"></i>
+            </div>
+          </div>
         <% end %>
 
   </div>
