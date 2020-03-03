@@ -14,9 +14,13 @@
               <div class="content-task-deadline task-font"><p><%= task.deadline %></p></div>
             <div class="content-task-urgent task-font">
               <% if task.urgent? %>
-              <i class="fas fa-arrow-circle-up"></i>
+                <%= link_to team_task_path(@team, task, task: {urgent: false}), method: :put do%>
+                  <i class="fas fa-arrow-circle-up"></i>
+                <% end %>
               <% else %>
-              <i class="far fa-circle"></i>
+                <%= link_to team_task_path(@team, task, task: {urgent: true}), method: :put do%>
+                  <i class="far fa-circle"></i>
+                <% end %>
               <% end %>
             </div>
               <div class="content-task-title task-font"><%= task.title %></div>
