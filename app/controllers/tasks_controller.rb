@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :find_team, only: %i[index new create user_tasks]
+  before_action :find_team, only: %i[index new create edit user_tasks destroy]
   before_action :find_task, only: %i[show edit update destroy]
 
   def index

@@ -33,8 +33,12 @@
               <%= task.description %>
             </div>
             <div class="edit-delete">
-              <i class="fas fa-trash-alt"></i>
-              <i class="fas fa-pencil-alt"></i>
+
+              <%= link_to "<i class='fas fa-pencil-alt'></i>".html_safe, edit_team_task_path(@team, task) %>
+              <%= link_to team_task_path(@team, task), method: :delete, data: {confirm: "Are you sure?"} do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+
             </div>
           </div>
         <% end %>
