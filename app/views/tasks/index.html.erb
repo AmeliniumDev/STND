@@ -25,7 +25,31 @@
             </div>
               <div class="content-task-title task-font"><%= task.title %></div>
               <div class="content-task-etc task-font"><p><%= task.etc %></p></div>
-              <div class="content-task-owner task-font"><p>To-do</p></div>
+              <div class="content-task-owner task-font">
+                <ul class="nav-item dropdown">
+                  <!-- if task.user.nil? true: "Not Assigend", false: show avatar -->
+                  <% if task.user.nil? %>
+                    <p>Not Assigned</p>
+                  <% else %>
+                    <!--checking if user has a photo: true: show avatar, false: show "Name Surname" -->
+                    <% if task.user.photo.attached? %>
+                      <%= cl_image_tag task.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <% else %>
+                      <p><%= task.user.first_name %> <%= task.user.last_name %></p>
+                    <% end %>
+                  <% end %>
+                  <!-- showing all team users (avatar / name + surname) in dropdown list -->
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <% @team.users.each do |user| %>
+                      <% if user.photo.attached? %>
+                        <%= cl_image_tag user.photo.key, class: "avatar" %>
+                      <% else %>
+                        <p><%= user.first_name %> <%= user.last_name %></p>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </ul>
+              </div>
             </div>
           </div>
           <div  class="collapse div-collapsed" id=<%= "task#{task.id}" %>>
