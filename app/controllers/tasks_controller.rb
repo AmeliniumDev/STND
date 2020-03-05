@@ -4,7 +4,7 @@ class TasksController < ApplicationController
 
   def index
     # showing tasks only belonging to the team
-    @tasks = Task.where(team: @team)
+    @tasks = Task.where(team: @team).reorder('urgent DESC','deadline ASC', 'etc ASC')
   end
 
   def new
