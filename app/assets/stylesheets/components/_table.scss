@@ -175,3 +175,35 @@
 .fa-pencil-alt:before {
   padding: 0px 7px;
 }
+
+
+.content-task-status-header {
+  margin: 0px 2.5px 2.5px 0px;
+  border-radius: 10px 0px 0px 0px;
+  width: 15%;
+  height: 40px;
+  padding: 10px;
+  background-color: #5158FE;
+  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+}
+
+
+.content-task-status {
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-play-circle:before {
+  padding: 0px 7px;
+  font-size: 25px;
+  color: $start-button;
+}
+
+.fa-check-square:before {
+  padding: 0px 7px;
+  font-size: 25px;
+  color: $finish-button;
+}
+
