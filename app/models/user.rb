@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   belongs_to :team
   has_many :tasks
+  has_one_attached :photo
 
   # validates :first_name, presence: true
   # validates :last_name, presence: true
