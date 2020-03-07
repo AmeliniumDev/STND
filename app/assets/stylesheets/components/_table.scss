@@ -157,7 +157,7 @@
   width: 15%;
   // background-color: #ededed;
   display: flex;
-  align-items: right;
+  align-items: center;
   justify-content: center;
 }
 
@@ -170,10 +170,12 @@
 
 .fa-trash-alt:before {
   padding: 0px 7px;
+  font-size: 15px;
 }
 
 .fa-pencil-alt:before {
   padding: 0px 7px;
+  font-size: 15px;
 }
 
 
