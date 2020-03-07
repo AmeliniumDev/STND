@@ -1,10 +1,2 @@
-<div class="task-form">
-  <%= simple_form_for( [@team, @task]) do |f| %>
-    <%= f.input :title, label: "Title", placeholder: "Task Title" %>
-    <%= f.input :description, label: "Description", placeholder: "Task Description" %>
-    <%= f.input :deadline %>
-    <%= f.input :etc, label: "Time to complete (hours)", placeholder: "Estimated number of hours"%>
-    <%= f.input :urgent %>
-    <%= f.submit "Update", class: "btn btn-primary" %>
-  <% end %>
-</div>
+<%= render 'form', team: @team, task: @task, action: 'Update' %>
+
