@@ -8,9 +8,8 @@
     <!-- input etc type hidden value is sum of input hours and minutes, requires js event is either change in input hours or minutes, each time recompute sum and assign to etc input value -->
     <%= f.input :etc, label: "Time to complete (hours)", placeholder: "Estimated number of hours"%>
     <%= f.input :urgent %>
-    <%= f.hidden_field :original_page, value: request.original_url %>
-    <%= f.hidden_field :referrer_page, value: request.referrer %>
+    <%= hidden_field :original_page, value: request.original_url  %>
+    <%= hidden_field :referrer_page, value: request.referrer  %>
     <%= f.submit value: action, class: "btn btn-primary" %>
   <% end %>
 </div>
-

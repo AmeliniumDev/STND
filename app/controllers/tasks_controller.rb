@@ -26,7 +26,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    source_page = params[:task][:referrer_page]
+    source_page = params[:task][:original_page]
     if @task.update(task_params)
       redirect_to source_page
     else
