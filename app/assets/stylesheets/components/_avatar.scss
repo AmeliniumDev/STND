@@ -2,6 +2,28 @@
   width: 40px;
   border-radius: 50%;
 }
+.avatar-round{
+  width: 40px;
+  height: 40px;
+  // fill the container, preserving aspect ratio, and cropping to fit
+  background-size: cover;
+  // center the image vertically and horizontally
+  background-position: top center;
+  // round the edges to a circle with border radius 1/2 container size
+  border-radius: 50%;
+}
+.avatar-small {
+  // make a square container
+  width: 35px;
+  height: 35px;
+  // fill the container, preserving aspect ratio, and cropping to fit
+  background-size: cover;
+  // center the image vertically and horizontally
+  background-position: top center;
+  // round the edges to a circle with border radius 1/2 container size
+  border-radius: 50%;
+  // vertical-align: middle;
+}
 .avatar-large {
   width: 56px;
   border-radius: 50%;

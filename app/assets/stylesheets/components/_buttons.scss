@@ -35,6 +35,27 @@
   // margin-bottom: 20px;
 }
 
+.links-table-owner {
+  // background-color: #F76C6C;
+  // text-align: center;
+  // width: 200px;
+  // height: 50px;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  // border: 3px solid #F76C6C;
+  // padding: 10px 25px 10px 25px;
+  // border-radius: 50px;
+  opacity: 0.95;
+  transition: opacity 0.3s ease;
+  // font-weight: bold;
+  // margin-right: 10px;
+  // margin-bottom: 20px;
+}
+.no-owner {
+  color: #F76C6C;
+}
+
 // small buttons for navbar
 .link-sm {
   font-size: 15px;
@@ -55,4 +76,12 @@
   text-decoration: none;
   color: white;
   // font-weight: bold;
+}
+.links-table-owner:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: black;
+}
+.no-owner:hover {
+  color: #F76C6C;
 }
