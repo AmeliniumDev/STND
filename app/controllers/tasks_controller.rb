@@ -4,7 +4,7 @@ class TasksController < ApplicationController
 
   def index
     # showing tasks only belonging to the team
-    @tasks = Task.where(team: @team).reorder('urgent DESC','deadline ASC', 'etc ASC')
+    @tasks = Task.where(team: @team).reorder('deadline ASC', 'urgent DESC', 'etc ASC')
   end
 
   def new
@@ -23,9 +23,6 @@ class TasksController < ApplicationController
   end
 
   def show
-  end
-
-  def edit
   end
 
   def update
@@ -49,7 +46,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:user, :title, :description, :deadline, :etc, :urgent)
+    params.require(:task).permit(:user_id, :title, :description, :deadline, :etc, :urgent)
   end
 
   def find_team

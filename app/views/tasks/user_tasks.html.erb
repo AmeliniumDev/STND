@@ -9,9 +9,11 @@
         <h4 class="header-font content-task-status-header">Status</h4>
       </div>
         <% @tasks.each do |task| %>
+        <div class="close">
           <div  class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
             <div class="row-task">
               <div class="content-task-deadline task-font"><p><%= task.deadline %></p></div>
+
             <div class="content-task-urgent task-font">
               <% if task.urgent? %>
                 <%= link_to team_task_path(@team, task, task: {urgent: false, referrer_page: user_tasks_team_tasks_path(@team)}), method: :put do%>
@@ -23,28 +25,57 @@
                 <% end %>
               <% end %>
             </div>
-              <div class="content-task-title task-font"><%= task.title %></div>
-              <div class="content-task-etc task-font"><p><%= task.etc %></p></div>
-              <div class="content-task-status task-font">
-                <i class="fas fa-play-circle"></i>
-                <i class="fas fa-check-square"></i>
-              </div>
+                <div class="content-task-title task-font"><%= task.title %></div>
+                <div class="content-task-etc task-font"><p><%= task.etc %></p></div>
+                <div class="content-task-status task-font">
+                  <i class="fas fa-play-circle"></i>
+                  <span><i class="fas fa-check-square"></i></span>
+                </div>
             </div>
+
           </div>
           <div  class="collapse div-collapsed" id=<%= "task#{task.id}" %>>
             <div class="task-description">
               <%= task.description %>
             </div>
-            <div class="edit-delete">
 
-              <%= link_to "<i class='fas fa-pencil-alt'></i>".html_safe, edit_team_task_path(@team, task) %>
+
+            <div class="edit-delete">
+              <a class="" href="#">
+                <i class="fas fa-pencil-alt" data-toggle="modal" data-target="#editModal<%=task.id%>"></i>
+                <%= render "edit", team: @team, task: task %>
+              </a>
+
+
               <%= link_to team_task_path(@team, task), method: :delete, data: {confirm: "Are you sure?"} do %>
                 <i class="fas fa-trash-alt"></i>
               <% end %>
 
             </div>
           </div>
+        </div>
         <% end %>
 
   </div>
 </div>
+
+
+
+<script>
+  var hidecard = document.getElementsByClassName("close");
+  var i;
+
+  for (i = 0; i < hidecard.length; i++) {
+    hidecard[i].addEventListener("click", function() {
+    this.style.display = 'none';
+    });
+  }
+</script>
+
+
+<!-- document.querySelectorAll(".close").forEach((task) => {
+  task.addEventListener("click", (event) => {
+    event.currentTarget.classList.toggle("not-visible");
+    event.currentTarget.style.display = 'none';
+  });
+}); -->
