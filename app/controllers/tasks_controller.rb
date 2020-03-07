@@ -46,7 +46,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:user_id, :title, :description, :deadline, :etc, :urgent)
+    params.require(:task).permit(:user_id, :title, :description, :deadline, :etc, :urgent, :hours, :minutes)
   end
 
   def find_team

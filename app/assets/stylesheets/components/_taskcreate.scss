@@ -24,3 +24,19 @@
 .form-control {
   border-radius: 5px;
 }
+
+.etc {
+  display: flex;
+  flex-direction: column;
+}
+
+.etc-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-control.is-valid {
+  border: 1px solid #ced4da;
+  background-image: none;
+  padding-right: 2px;
+}
