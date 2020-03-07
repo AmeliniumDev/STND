@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Clean the database"
 
-Task.all.destroy_all
-User.all.destroy_all
-Team.all.destroy_all
 Company.all.destroy_all
+Team.all.destroy_all
+User.all.destroy_all
+Task.all.destroy_all
 
 puts "Seed the database"
 

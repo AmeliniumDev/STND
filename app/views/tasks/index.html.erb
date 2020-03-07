@@ -9,9 +9,11 @@
         <h4 class="header-font content-task-owner-header">Owner</h4>
       </div>
         <% @tasks.each do |task| %>
-          <div  class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
+          <div class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
             <div class="row-task">
-              <div class="content-task-deadline task-font"><p><%= task.deadline %></p></div>
+              <div class="content-task-deadline task-font">
+                <p><%= task.deadline %></p>
+              </div>
             <div class="content-task-urgent task-font">
               <% if task.urgent? %>
                 <%= link_to team_task_path(@team, task, task: {urgent: false}), method: :put do%>
@@ -54,17 +56,21 @@
               </div>
             </div>
           </div>
-          <div  class="collapse div-collapsed" id=<%= "task#{task.id}" %>>
+          <div class="collapse div-collapsed" id=<%= "task#{task.id}" %>>
             <div class="task-description">
               <%= task.description %>
             </div>
             <div class="edit-delete">
-              <i class="fas fa-trash-alt"></i>
-              <i class="fas fa-pencil-alt"></i>
+              <a class="" href="#">
+                <i class="fas fa-pencil-alt" data-toggle="modal" data-target="#editModal<%=task.id%>"></i>
+                <%= render "edit", team: @team, task: task %>
+              </a>
+              <%= link_to team_task_path(@team, task), method: :delete, data: {confirm: "Are you sure?"} do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
             </div>
           </div>
         <% end %>
-
   </div>
 </div>
 
