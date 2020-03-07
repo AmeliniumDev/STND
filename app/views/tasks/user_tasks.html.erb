@@ -13,17 +13,18 @@
           <div  class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
             <div class="row-task">
               <div class="content-task-deadline task-font"><p><%= task.deadline %></p></div>
-              <div class="content-task-urgent task-font">
-                <% if task.urgent? %>
-                  <%= link_to team_task_path(@team, task, task: {urgent: false}), method: :put do%>
-                    <i class="fas fa-arrow-circle-up"></i>
-                  <% end %>
-                <% else %>
-                  <%= link_to team_task_path(@team, task, task: {urgent: true}), method: :put do%>
-                    <i class="far fa-circle"></i>
-                  <% end %>
+
+            <div class="content-task-urgent task-font">
+              <% if task.urgent? %>
+                <%= link_to team_task_path(@team, task, task: {urgent: false, referrer_page: user_tasks_team_tasks_path(@team)}), method: :put do%>
+                  <i class="fas fa-arrow-circle-up"></i>
                 <% end %>
-              </div>
+              <% else %>
+                <%= link_to team_task_path(@team, task, task: {urgent: true, referrer_page: user_tasks_team_tasks_path(@team)}), method: :put do%>
+                  <i class="far fa-circle"></i>
+                <% end %>
+              <% end %>
+            </div>
                 <div class="content-task-title task-font"><%= task.title %></div>
                 <div class="content-task-etc task-font"><p><%= task.etc %></p></div>
                 <div class="content-task-status task-font">
