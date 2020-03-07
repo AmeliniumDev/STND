@@ -35,9 +35,15 @@
             <div class="task-description">
               <%= task.description %>
             </div>
-            <div class="edit-delete">
 
-              <%= link_to "<i class='fas fa-pencil-alt'></i>".html_safe, edit_team_task_path(@team, task) %>
+
+            <div class="edit-delete">
+              <a class="" href="#">
+                <i class="fas fa-pencil-alt" data-toggle="modal" data-target="#editModal<%=task.id%>"></i>
+                <%= render "edit", team: @team, task: task %>
+              </a>
+
+
               <%= link_to team_task_path(@team, task), method: :delete, data: {confirm: "Are you sure?"} do %>
                 <i class="fas fa-trash-alt"></i>
               <% end %>
