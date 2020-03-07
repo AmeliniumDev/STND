@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
+  attr_accessor :original_page, :referrer_page
   belongs_to :user, optional: true
   belongs_to :team
 

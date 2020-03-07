@@ -63,6 +63,27 @@
    text-decoration: none;
 }
 
+.navbar-logo h1 {
+  font-family: "Open Sans";
+  color: white;
+  font-size: 24px;
+  margin: 0px;
+  padding: 0px 5px;
+}
+.navbar-logo {
+  display: flex;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.fa-tasks {
+  color: $navbar-button;
+  text-decoration: none;
+  // font-family: "Open Sans";
+}
+
 .fa-chart-line {
   color: $navbar-button;
 }

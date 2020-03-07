@@ -19,6 +19,8 @@
               </div>
             </div>
             <%= f.input :urgent %>
+            <%= f.hidden_field :original_page, value: request.original_url  %>
+            <%= f.hidden_field :referrer_page, value: request.referrer  %>
             <%= f.submit "Update", class: "btn btn-primary" %>
           <% end %>
         </div>
