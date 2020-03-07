@@ -6,9 +6,15 @@
     <!-- input hours type number id hours  -->
     <!-- input minutes type select id minutes [["0", "00"], ["0.25", "15"], ["0.5", "30"] etc...]  -->
     <!-- input etc type hidden value is sum of input hours and minutes, requires js event is either change in input hours or minutes, each time recompute sum and assign to etc input value -->
-    <%= f.input :etc, label: "Time to complete (hours)", placeholder: "Estimated number of hours"%>
-    <%= f.input :urgent %>
-    <%= f.submit "Create", class: "btn btn-primary" %>
+    <%#= f.input :etc, label: "Time to complete (hours)", placeholder: "Estimated number of hours"%>
+    <div class="etc">
+      <p class="form-group">Estimated time needed:</p>
+      <div class="etc-row">
+        <%= f.input :hours, label:"Hours"%>
+        <%= f.input :minutes, label: "Minutes"%>
+      </div>
+    </div>
+        <%= f.input :urgent %>
+        <%= f.submit "Create", class: "btn btn-primary" %>
   <% end %>
 </div>
-

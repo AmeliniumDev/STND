@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_205332) do
+ActiveRecord::Schema.define(version: 2020_03_07_150102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 2020_03_03_205332) do
     t.datetime "updated_at", null: false
     t.bigint "team_id"
     t.bigint "user_id"
+    t.integer "hours", default: 0
+    t.integer "minutes", default: 0
     t.index ["team_id"], name: "index_tasks_on_team_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end

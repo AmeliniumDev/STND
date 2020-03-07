@@ -26,7 +26,7 @@
               <% end %>
             </div>
               <div class="content-task-title task-font"><%= task.title %></div>
-              <div class="content-task-etc task-font"><p><%= task.etc %></p></div>
+              <div class="content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
               <div class="content-task-owner task-font">
                 <div class="nav-item dropdown centered">
                   <!-- if task.user.nil? true: "Not Assigend", false: show avatar -->

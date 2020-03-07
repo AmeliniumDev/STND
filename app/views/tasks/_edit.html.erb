@@ -10,7 +10,14 @@
             <%= f.input :title, label: "Title", placeholder: "Task Title" %>
             <%= f.input :description, label: "Description", placeholder: "Task Description" %>
             <%= f.input :deadline %>
-            <%= f.input :etc, label: "Time to complete (hours)", placeholder: "Estimated number of hours"%>
+            <%#= f.input :etc, label: "Time to complete (hours)", placeholder: "Estimated number of hours"%>
+            <div class="etc">
+              <p class="form-group">Estimated time needed:</p>
+              <div class="etc-row">
+                <%= f.input :hours, label:"Hours"%>
+                <%= f.input :minutes, label: "Minutes"%>
+              </div>
+            </div>
             <%= f.input :urgent %>
             <%= f.submit "Update", class: "btn btn-primary" %>
           <% end %>
