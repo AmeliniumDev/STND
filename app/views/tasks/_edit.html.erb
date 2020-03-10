@@ -5,25 +5,7 @@
         <h5 class="modal-title" id="exampleModalLabel">Edit task</h5>
       </div>
       <div class="modal-body">
-        <div class="task-form">
-          <%= simple_form_for( [team, task]) do |f| %>
-            <%= f.input :title, label: "Title", placeholder: "Task Title" %>
-            <%= f.input :description, label: "Description", placeholder: "Task Description" %>
-            <%= f.input :deadline %>
-            <%#= f.input :etc, label: "Time to complete (hours)", placeholder: "Estimated number of hours"%>
-            <div class="etc">
-              <p class="form-group">Estimated time needed:</p>
-              <div class="etc-row">
-                <%= f.input :hours, label:"Hours"%>
-                <%= f.input :minutes, label: "Minutes"%>
-              </div>
-            </div>
-            <%= f.input :urgent %>
-            <%= f.hidden_field :original_page, value: request.original_url  %>
-            <%= f.hidden_field :referrer_page, value: request.referrer  %>
-            <%= f.submit "Update", class: "btn btn-primary" %>
-          <% end %>
-        </div>
+        <%= render 'form', team: team, task: task %>
       </div>
     </div>
   </div>
