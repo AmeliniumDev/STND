@@ -73,7 +73,7 @@
   </div>
 </div>
 
---------
+
 
 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
     Completed tasks
@@ -89,7 +89,7 @@
             <h4 class="header-font content-task-etc-header"><i class="far fa-clock"></i></h4>
             <h4 class="header-font content-task-owner-header">Owner</h4>
           </div>
-            <% @tasks.each do |task| %>
+            <% @completed_tasks.each do |task| %>
               <div class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
                 <div class="row-task">
                   <div class="content-task-deadline task-font">
