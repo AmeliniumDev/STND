@@ -39,6 +39,8 @@ class TasksController < ApplicationController
 
   def user_tasks
     @tasks = Task.where(user: current_user, team: @team, complete: false)
+    @completed_tasks = Task.where(user: current_user, team: @team, complete: true)
+    @completed_team_tasks = Task.where(team: @team, complete: true)
   end
 
   private
