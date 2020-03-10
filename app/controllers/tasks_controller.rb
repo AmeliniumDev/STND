@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :find_team, only: %i[index new create edit user_tasks destroy]
+  before_action :find_team, only: %i[index new create edit update user_tasks destroy]
   before_action :find_task, only: %i[show edit update destroy]
 
   def index
@@ -14,9 +14,8 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.team = @team
-    source_page = params[:task][:original_page]
     if @task.save
-      redirect_to source_page
+      redirect_to team_tasks_path(@team)
     else
       render :new
     end
@@ -26,9 +25,8 @@ class TasksController < ApplicationController
   end
 
   def update
-    source_page = params[:task][:original_page]
     if @task.update(task_params)
-      redirect_to source_page
+      redirect_to team_tasks_path(@team) #request.referrer
     else
       render :edit
     end
@@ -40,13 +38,13 @@ class TasksController < ApplicationController
   end
 
   def user_tasks
-    @tasks = Task.where(user: current_user, team: @team)
+    @tasks = Task.where(user: current_user, team: @team, complete: false)
   end
 
   private
 
   def task_params
-    params.require(:task).permit(:user_id, :title, :description, :deadline, :etc, :urgent, :hours, :minutes)
+    params.require(:task).permit(:user_id, :title, :description, :deadline, :etc, :urgent, :hours, :minutes, :complete)
   end
 
   def find_team
