@@ -38,13 +38,13 @@ class TasksController < ApplicationController
   end
 
   def user_tasks
-    @tasks = Task.where(user: current_user, team: @team)
+    @tasks = Task.where(user: current_user, team: @team, complete: false)
   end
 
   private
 
   def task_params
-    params.require(:task).permit(:user_id, :title, :description, :deadline, :etc, :urgent, :hours, :minutes)
+    params.require(:task).permit(:user_id, :title, :description, :deadline, :etc, :urgent, :hours, :minutes, :complete)
   end
 
   def find_team
