@@ -35,7 +35,7 @@
                   <% else %>
                     <!--checking if user has a photo: true: show avatar, false: show "Name Surname" -->
                     <% if task.user.photo.attached? %>
-                      <%= cl_image_tag task.user.photo.key, class: "avatar-small dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                      <%= cl_image_tag task.user.photo.key, class: "avatar-round avatar-small dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                     <% else %>
                       <%= link_to "#{task.user.first_name} #{task.user.last_name}", edit_user_registration_path, class: "dropdown-toggle links-table-owner", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                     <% end %>
@@ -58,7 +58,8 @@
                       <div class="etc-avatar">
                       <% if user.photo.attached? %>
                         <%= link_to team_task_path(@team, task, task: { user_id: user.id}), method: :put, class: "dropdown-item" do %>
-                          <%= cl_image_tag user.photo.key, class: "avatar-small text-center" %>
+
+                          <%= cl_image_tag user.photo.key, class: "avatar-round avatar-small text-center" %>
 
                         <% end %>
                       <% else %>

@@ -28,10 +28,6 @@
   font-size: x-large;
 }
 
-.avatar {
-  width: 35px;
-}
-
 .navbar {
   height: 55px;
   // z-index: 2;
@@ -76,6 +72,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+}
+.navbar-logo:hover {
   text-decoration: none;
 }
 .fa-tasks {
