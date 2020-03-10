@@ -16,7 +16,7 @@ class TasksController < ApplicationController
     @task.team = @team
     source_page = params[:task][:original_page]
     if @task.save
-      redirect_to source_page
+      redirect_to team_tasks_path
     else
       render :new
     end
@@ -28,7 +28,7 @@ class TasksController < ApplicationController
   def update
     source_page = params[:task][:original_page]
     if @task.update(task_params)
-      redirect_to source_page
+      redirect_to team_tasks_path
     else
       render :edit
     end
