@@ -10,6 +10,9 @@
   // round the edges to a circle with border radius 1/2 container size
   border-radius: 50%;
 }
+.avatar-round:hover {
+  border: transparent 0.5px solid;
+}
 .avatar-small {
   // make a square container
   width: 35px;
