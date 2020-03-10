@@ -1,10 +1,20 @@
 .fa-arrow-circle-up {
   color: $urgent-button;
+  opacity: 0.9;
+}
+.fa-arrow-circle-up:hover {
+  opacity: 1;
 }
 
 .fa-circle {
   // color: #35D6CF;
   color: $urgent-button;
+  opacity: 0.9;
+}
+.fa-circle:hover {
+  // color: #35D6CF;
+  color: $urgent-button;
+  opacity: 1;
 }
 
 .header {
