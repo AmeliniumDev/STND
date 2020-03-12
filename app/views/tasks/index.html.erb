@@ -42,15 +42,35 @@ Team's tasks
                   <% end %>
                   <!-- showing all team users (avatar / name + surname) in dropdown list -->
                   <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
+                  <% results = Hash.new %>
                     <% @team.users.each do |user| %>
+
+                      <% total_etc = 0 %>
+                        <% id = user.id %>
+                          <% user.tasks.each do |task1| %>
+                            <% if task1.deadline.to_s <= task.deadline.to_s %>
+                              <% total_etc += task1.hours*60 + task1.minutes %>
+                            <% else %>
+                              <% total_etc += 0 %>
+                            <% end %>
+                          <% end %>
+
+                      <div class="etc-avatar">
                       <% if user.photo.attached? %>
                         <%= link_to team_task_path(@team, task, task: { user_id: user.id}), method: :put, class: "dropdown-item" do %>
+
                           <%= cl_image_tag user.photo.key, class: "avatar-round avatar-small text-center" %>
+
                         <% end %>
                       <% else %>
                         <%= link_to "#{user.first_name} #{user.last_name}", team_task_path(@team, task, task: { user_id: user.id}), method: :put, class: "dropdown-item", data: { toggle: "" }, 'aria-expanded': false %>
                       <% end %>
+                          <%= (total_etc/60).to_f.round %>
+                          <p> h </p>
+                      </div>
+
                     <% end %>
+
                   </div>
                 </div>
               </div>

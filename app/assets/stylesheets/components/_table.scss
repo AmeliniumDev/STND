@@ -211,6 +211,12 @@
   color: $finish-button;
 }
 
-.completed-tasks-collapse {
-  background-color: red;
+.etc-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.etc-avatar p{
+  margin: 0;
 }
