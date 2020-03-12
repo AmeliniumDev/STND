@@ -26,7 +26,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to team_tasks_path(@team) #request.referrer
+      redirect_to team_tasks_path(@team)
     else
       render :edit
     end
