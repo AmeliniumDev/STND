@@ -1,6 +1,7 @@
 <div class="table-page">
-
+  <!-- TASKS TABLE _ TEAM VIEW -->
   <div class="table">
+      <!-- COLUMN HEADERS -->
       <div class="headers">
         <h4 class="header-font content-task-deadline-header">Deadline</h4>
         <h4 class="header-font content-task-urgent-header"><i class="fas fa-arrow-circle-up header"></i></h4>
@@ -8,6 +9,7 @@
         <h4 class="header-font content-task-etc-header"><i class="far fa-clock"></i></h4>
         <h4 class="header-font content-task-owner-header">Owner</h4>
       </div>
+        <!-- ROWS OF TASKS -->
         <% @tasks.each do |task| %>
           <div class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
             <div class="row-task">
@@ -27,6 +29,7 @@
             </div>
               <div class="content-task-title task-font"><%= task.title %></div>
               <div class="content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
+              <!-- OWNERS -->
               <div class="content-task-owner task-font">
                 <div class="nav-item dropdown centered">
                   <!-- if task.user.nil? true: "Not Assigend", false: show avatar -->
