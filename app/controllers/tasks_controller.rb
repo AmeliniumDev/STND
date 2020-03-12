@@ -4,7 +4,8 @@ class TasksController < ApplicationController
 
   def index
     # showing tasks only belonging to the team
-    @tasks = Task.where(team: @team).reorder('deadline ASC', 'urgent DESC', 'etc ASC')
+    @tasks = Task.where(team: @team, complete: false).reorder('deadline ASC', 'urgent DESC', 'etc ASC')
+    @completed_tasks = Task.where(team: @team, complete: true).reorder('deadline ASC', 'urgent DESC', 'etc ASC')
   end
 
   def new
@@ -39,6 +40,7 @@ class TasksController < ApplicationController
 
   def user_tasks
     @tasks = Task.where(user: current_user, team: @team, complete: false)
+    @completed_tasks = Task.where(user: current_user, team: @team, complete: true)
   end
 
   private
