@@ -73,7 +73,8 @@ Task.create!(
   title: "Hire a replacement for Alex",
   description: "Before he leaves on the 24th of March.",
   deadline: '2020-03-24',
-  etc: 5,
+  hours: 5,
+  minutes: 15,
   urgent: true,
   team_id: 1,
   user_id: 1
@@ -82,8 +83,9 @@ Task.create!(
   title: "Send contracts to Ashurst",
   description: "Contracts need to be sent ASAP to John from marketing at Ashurst.",
   deadline: '2020-03-20',
-  etc: 15,
-  urgent: true,
+  hours: 3,
+  minutes: 30,
+  urgent: false,
   team_id: 1,
   user_id: 1
   )
@@ -91,33 +93,37 @@ Task.create!(
   title: "Write press release for Trippify",
   description: "Launch is on the 15th.",
   deadline: '2020-03-18',
-  etc: 2,
-  urgent: true,
+  hours: 2,
+  minutes: 0,
+  urgent: false,
   team_id: 1,
   user_id: 1
   )
 Task.create!(
-  title: "Create minutes - last team meeting",
+  title: "Create minutes - board meeting",
   description: "Updates on recruitment for Alex's post.",
-  deadline: '2020-03-17',
-  etc: 2,
-  urgent: true,
+  deadline: '2020-03-15',
+  hours: 1,
+  minutes: 45,
+  urgent: false,
   team_id: 1,
   user_id: 1
   )
 Task.create!(
-  title: "Prepare meeting room 1 for the Board Meeting @3PM",
+  title: "Prepare board meeting deck",
   description: "Water, coffee, tea, snacks, fruits, cups, plates, and napkins. Connect Amy's laptop to the screen.",
   deadline: '2020-03-15',
-  etc: 2,
-  urgent: true,
+  hours: 7,
+  minutes: 0,
+  urgent: false,
   team_id: 1
   )
 Task.create!(
   title: "Send invoices to SuperCycle",
   description: "Launching the website.",
   deadline: '2020-03-12',
-  etc: 2,
+  hours: 2,
+  minutes: 0,
   urgent: true,
   team_id: 1,
   user_id: 2
@@ -126,8 +132,9 @@ Task.create!(
   title: "Post ad for a new role on indeed.com",
   description: "Ask Amy for the sign off.",
   deadline: '2020-03-24',
-  etc: 2,
-  urgent: true,
+  hours: 0,
+  minutes: 15,
+  urgent: false,
   team_id: 1,
   user_id: 2
   )
@@ -135,8 +142,9 @@ Task.create!(
   title: "Arrange meeting with new client - Bolt",
   description: "Prepare presentation on 'How to beat Uber'.",
   deadline: '2020-03-15',
-  etc: 2,
-  urgent: true,
+  hours: 0,
+  minutes: 15,
+  urgent: false,
   team_id: 1,
   user_id: 3
   )
@@ -144,8 +152,9 @@ Task.create!(
   title: "Arrange staff lunch delivery from BunBunBun on Mondays",
   description: "Ask staff for allergies and meat/vegetarian/vegan options.",
   deadline: '2020-03-21',
-  etc: 2,
-  urgent: true,
+  hours: 1,
+  minutes: 30,
+  urgent: false,
   team_id: 1,
   user_id: 4
   )
@@ -153,8 +162,9 @@ Task.create!(
   title: "Organise team meeting on the 15th",
   description: "Discuss recent developments and introduce new team members.",
   deadline: '2020-03-15',
-  etc: 2,
-  urgent: true,
+  hours: 0,
+  minutes: 15,
+  urgent: false,
   team_id: 2,
   user_id: 1
   )

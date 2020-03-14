@@ -2,6 +2,7 @@
 
 .table-page {
  width: 100%;
+ min-width: 1070px;
  height: 100vh;
  display: flex;
  align-items: center;
@@ -57,7 +58,7 @@
   height: 40px;
   padding: 10px;
   background-color: #5158FE;
-  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+  box-shadow: 0 2px 3px rgba(0,0,0,.2);
 }
 
 .content-task-urgent-header {
@@ -70,7 +71,7 @@
   padding: 10px;
   width: 10%;
   background-color: #5158FE;
-  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+  box-shadow: 0 2px 3px rgba(0,0,0,.25);
 }
 
 .content-task-title-header {
@@ -80,36 +81,45 @@
   padding: 10px;
   width: 50%;
   background-color: #5158FE;
-  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+  box-shadow: 0 2px 3px rgba(0,0,0,.25);
 }
 
 .content-task-etc-header {
   margin-right: 10px;
   border-radius: 0px 0px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 10%;
   height: 40px;
   padding: 10px;
   background-color: #5158FE;
-  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+  box-shadow: 0 2px 3px rgba(0,0,0,.25);
 }
 
 .content-task-owner-header {
   border-radius: 0px 10px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 15%;
   height: 40px;
   padding: 10px;
   background-color: #5158FE;
-  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+  box-shadow: 0 2px 3px rgba(0,0,0,.25);
 }
 
 // individual view only
 .content-task-status-header {
-  border-radius: 10px 0px 0px 0px;
+  border-radius: 0px 10px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 15%;
   height: 40px;
   padding: 10px;
   background-color: #5158FE;
-  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+  box-shadow: 0 2px 3px rgba(0,0,0,.25);
 }
 
 // INDIVIDUAL TASK ROWS
@@ -178,7 +188,11 @@
 
 // individual view only
 .content-task-status {
+  border-radius: 0px 10px 10px 0px;
   width: 15%;
+  height: 40px;
+  background-color: #EAECFF;
+  box-shadow: 0 2px 3px rgba(0,0,0,.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -200,16 +214,22 @@
 .edit-delete {
   width: 15%;
   // background-color: #ededed;
+
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px;
+  background-color: #ededed;
+  border-radius: 0px 10px 10px 0px;
+  height: 40px;
 }
 
 .task-description {
   width: 85%;
   padding: 10px;
+  margin-right: 10px;
   background-color: #ededed;
-  border-radius: 10px;
+  border-radius: 10px 0px 0px 10px;
 }
 
 .fa-trash-alt:before {

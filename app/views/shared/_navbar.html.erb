@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-pages">
   <div>
-    <a class="navbar-logo" href="#">
+    <a class="navbar-logo" href="../tasks">
       <%= image_tag "white-logo.png", class: "logo", alt: "alttext" %>
       <h1> ST&ND </h1>
     </a>
@@ -40,21 +40,23 @@
               <i class="navbar-brand fas fa-users" class="avatar dropdown-toggle" id="navbarDropdown white-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ></i>
               <!-- ITERATE OVER USERS -->
               <!-- showing all team users (avatar / name + surname) in dropdown list -->
-              <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
-                <% @team.users.each do |user| %>
-                  <% if user.photo.attached? %>
-                  <!-- user_tasks_team_tasks -->
-                    <!-- Couldn't find Task with 'id'=user_tasks  / it should be id of task-->
-                    <!-- @task = Task.find(params[:id]) -->
-                    <!-- user_tasks_team_tasks GET /teams/:team_id/tasks/user_tasks(.:format) tasks#user_tasks -->
-                    <%= link_to user_tasks_team_tasks_path(user.team), class: "dropdown-item" do %>
-                      <%= cl_image_tag user.photo.key, class: "avatar-round avatar-small text-center" %>
+              <% if @team %>
+                <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
+                  <% @team.users.each do |user| %>
+                    <% if user.photo.attached? %>
+                    <!-- user_tasks_team_tasks -->
+                      <!-- Couldn't find Task with 'id'=user_tasks  / it should be id of task-->
+                      <!-- @task = Task.find(params[:id]) -->
+                      <!-- user_tasks_team_tasks GET /teams/:team_id/tasks/user_tasks(.:format) tasks#user_tasks -->
+                      <%= link_to user_tasks_team_tasks_path(user.team), class: "dropdown-item" do %>
+                        <%= cl_image_tag user.photo.key, class: "avatar-round avatar-small text-center" %>
+                      <% end %>
+                    <% else %>
+                      <%= link_to "#{user.first_name} #{user.last_name}", team_user_path(@team, user), class: "dropdown-item", data: { toggle: "" }, 'aria-expanded': false %>
                     <% end %>
-                  <% else %>
-                    <%= link_to "#{user.first_name} #{user.last_name}", team_user_path(@team, user), class: "dropdown-item", data: { toggle: "" }, 'aria-expanded': false %>
                   <% end %>
-                <% end %>
-              </div>
+                </div>
+              <% end %>
             </div>
           <!-- </div> -->
           <!-- NEW CODE END -->
