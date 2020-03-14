@@ -23,7 +23,7 @@
           <% end %>
         </div>
             <div class="content-task-title task-font"><%= task.title %></div>
-            <div class="content-task-etc task-font"><p><%= task.etc %></p></div>
+            <div class="content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
             <div class="content-task-status task-font">
               <%= link_to team_task_path(@team, task, task: { complete: true }), method: :put do %>
                 <i class="far fa-play-circle"></i>
