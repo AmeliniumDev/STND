@@ -85,7 +85,7 @@ Task.create!(
   deadline: '2020-03-20',
   hours: 3,
   minutes: 30,
-  urgent: true,
+  urgent: false,
   team_id: 1,
   user_id: 1
   )
@@ -95,27 +95,27 @@ Task.create!(
   deadline: '2020-03-18',
   hours: 2,
   minutes: 0,
-  urgent: true,
+  urgent: false,
   team_id: 1,
   user_id: 1
   )
 Task.create!(
-  title: "Create minutes - last team meeting",
+  title: "Create minutes - board meeting",
   description: "Updates on recruitment for Alex's post.",
-  deadline: '2020-03-17',
+  deadline: '2020-03-15',
   hours: 1,
   minutes: 45,
-  urgent: true,
+  urgent: false,
   team_id: 1,
   user_id: 1
   )
 Task.create!(
-  title: "Prepare meeting room 1 for the Board Meeting @3PM",
+  title: "Prepare board meeting deck",
   description: "Water, coffee, tea, snacks, fruits, cups, plates, and napkins. Connect Amy's laptop to the screen.",
   deadline: '2020-03-15',
   hours: 7,
   minutes: 0,
-  urgent: true,
+  urgent: false,
   team_id: 1
   )
 Task.create!(
@@ -134,7 +134,7 @@ Task.create!(
   deadline: '2020-03-24',
   hours: 0,
   minutes: 15,
-  urgent: true,
+  urgent: false,
   team_id: 1,
   user_id: 2
   )
@@ -144,7 +144,7 @@ Task.create!(
   deadline: '2020-03-15',
   hours: 0,
   minutes: 15,
-  urgent: true,
+  urgent: false,
   team_id: 1,
   user_id: 3
   )
@@ -154,7 +154,7 @@ Task.create!(
   deadline: '2020-03-21',
   hours: 1,
   minutes: 30,
-  urgent: true,
+  urgent: false,
   team_id: 1,
   user_id: 4
   )
@@ -164,7 +164,7 @@ Task.create!(
   deadline: '2020-03-15',
   hours: 0,
   minutes: 15,
-  urgent: true,
+  urgent: false,
   team_id: 2,
   user_id: 1
   )
