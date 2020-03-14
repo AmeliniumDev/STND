@@ -8,13 +8,17 @@
  justify-content: center;
 }
 
+.card-body {
+  background-color: $light-gray;
+  border: none;
+}
 // TABLE
 
 .table {
   display: flex;
   flex-direction: column;
   // border: 1px solid black;
-  width: 90%;
+  width: 100%;
   border-radius: 10px;
 }
 
