@@ -6,28 +6,59 @@
     </a>
   </div>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
+  </button> -->
 
   <div class="navbar-collapse">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
+        <!-- ADD NEW TASK -->
         <li class="nav-item active">
           <a class="navbar-brand" href="#">
             <i class="fas fa-plus-circle" data-toggle="modal" data-target="#exampleModal"></i>
             <%= render "shared/taskcreate" %>
           </a>
         </li>
+        <!-- STATS ICON -->
         <li class="nav-item active">
           <a class="navbar-brand" href="#">
             <i class="fas fa-chart-line"></i>
           </a>
         </li>
+        <!-- TEAM ICON - DROPDOWN MENU -->
         <li class="nav-item">
-          <a class="navbar-brand" href="#">
+          <!-- OLD CODE START -->
+          <!-- <a class="navbar-brand" href="#">
             <i class="fas fa-users"></i>
-          </a>
+          </a> -->
+          <!-- OLD CODE FINISH -->
+
+          <!-- NEW CODE START -->
+          <!-- <div class="content-task-owner task-font"> -->
+            <div class="nav-item dropdown centered">
+              <i class="navbar-brand fas fa-users" class="avatar dropdown-toggle" id="navbarDropdown white-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ></i>
+              <!-- ITERATE OVER USERS -->
+              <!-- showing all team users (avatar / name + surname) in dropdown list -->
+              <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
+                <% @team.users.each do |user| %>
+                  <% if user.photo.attached? %>
+                  <!-- user_tasks_team_tasks -->
+                    <!-- Couldn't find Task with 'id'=user_tasks  / it should be id of task-->
+                    <!-- @task = Task.find(params[:id]) -->
+                    <!-- user_tasks_team_tasks GET /teams/:team_id/tasks/user_tasks(.:format) tasks#user_tasks -->
+                    <%= link_to user_tasks_team_tasks_path(user.team), class: "dropdown-item" do %>
+                      <%= cl_image_tag user.photo.key, class: "avatar-round avatar-small text-center" %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to "#{user.first_name} #{user.last_name}", team_user_path(@team, user), class: "dropdown-item", data: { toggle: "" }, 'aria-expanded': false %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          <!-- </div> -->
+          <!-- NEW CODE END -->
+
         </li>
         <!-- AVATAR / USER ICON -->
         <li class="nav-item dropdown">

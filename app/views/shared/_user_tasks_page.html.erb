@@ -1,0 +1,51 @@
+<div class="table-page">
+  <div class="table">
+    <div class="headers">
+      <h4 class="header-font content-task-deadline-header">Deadline</h4>
+      <h4 class="header-font content-task-urgent-header"><i class="fas fa-arrow-circle-up header"></i></h4>
+      <h4 class="header-font content-task-title-header">Title</h4>
+      <h4 class="header-font content-task-etc-header"><i class="far fa-clock"></i></h4>
+      <h4 class="header-font content-task-status-header">Status</h4>
+    </div>
+    <% @tasks.each do |task| %>
+      <div  class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
+        <div class="row-task">
+          <div class="content-task-deadline task-font"><p><%= task.deadline %></p></div>
+        <div class="content-task-urgent task-font">
+          <% if task.urgent? %>
+            <%= link_to team_task_path(@team, task, task: { urgent: false }), method: :put do%>
+              <i class="fas fa-arrow-circle-up"></i>
+            <% end %>
+          <% else %>
+            <%= link_to team_task_path(@team, task, task: { urgent: true }), method: :put do%>
+              <i class="far fa-circle"></i>
+            <% end %>
+          <% end %>
+        </div>
+            <div class="content-task-title task-font"><%= task.title %></div>
+            <div class="content-task-etc task-font"><p><%= task.etc %></p></div>
+            <div class="content-task-status task-font">
+              <%= link_to team_task_path(@team, task, task: { complete: true }), method: :put do %>
+                <i class="far fa-play-circle"></i>
+              <% end %>
+              <span><i class="fas fa-check-square"></i></span>
+            </div>
+        </div>
+      </div>
+      <div  class="collapse div-collapsed" id=<%= "task#{task.id}" %>>
+        <div class="task-description">
+          <%= task.description %>
+        </div>
+        <div class="edit-delete">
+          <a class="" href="#">
+            <i class="fas fa-pencil-alt" data-toggle="modal" data-target="#editModal<%=task.id%>"></i>
+            <%= render "tasks/edit", team: @team, task: task %>
+          </a>
+          <%= link_to team_task_path(@team, task), method: :delete, data: {confirm: "Are you sure?"} do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
