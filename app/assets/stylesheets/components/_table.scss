@@ -82,6 +82,9 @@
 .content-task-etc-header {
   margin-right: 10px;
   border-radius: 0px 0px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 10%;
   height: 40px;
   padding: 10px;
@@ -91,6 +94,9 @@
 
 .content-task-owner-header {
   border-radius: 0px 10px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 15%;
   height: 40px;
   padding: 10px;
@@ -100,7 +106,10 @@
 
 // individual view only
 .content-task-status-header {
-  border-radius: 10px 0px 0px 0px;
+  border-radius: 0px 10px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 15%;
   height: 40px;
   padding: 10px;
@@ -174,7 +183,11 @@
 
 // individual view only
 .content-task-status {
+  border-radius: 0px 10px 10px 0px;
   width: 15%;
+  height: 40px;
+  background-color: #EAECFF;
+  box-shadow: 0 2px 3px rgba(0,0,0,.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -196,16 +209,22 @@
 .edit-delete {
   width: 15%;
   // background-color: #ededed;
+
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px;
+  background-color: #ededed;
+  border-radius: 0px 10px 10px 0px;
+  height: 40px;
 }
 
 .task-description {
   width: 85%;
   padding: 10px;
+  margin-right: 10px;
   background-color: #ededed;
-  border-radius: 10px;
+  border-radius: 10px 0px 0px 10px;
 }
 
 .fa-trash-alt:before {

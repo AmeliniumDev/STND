@@ -10,7 +10,9 @@
     <% @tasks.each do |task| %>
       <div  class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
         <div class="row-task">
-          <div class="content-task-deadline task-font"><p><%= task.deadline %></p></div>
+          <div class="content-task-deadline task-font">
+            <p><%= task.deadline.strftime("%d-%m-%Y") %></p>
+          </div>
         <div class="content-task-urgent task-font">
           <% if task.urgent? %>
             <%= link_to team_task_path(@team, task, task: { urgent: false }), method: :put do%>
@@ -26,9 +28,12 @@
             <div class="content-task-etc task-font"><p><%= task.etc %></p></div>
             <div class="content-task-status task-font">
               <%= link_to team_task_path(@team, task, task: { complete: true }), method: :put do %>
-                <i class="far fa-play-circle"></i>
+               <!--  <p class= "finish-button"> Finish </p> -->
+                <button class="done-button" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">✓ Done</button>
+                <!-- <i class="far fa-play-circle"></i> -->
+                <!-- <span><i class="fas fa-check-square"></i></span> -->
               <% end %>
-              <span><i class="fas fa-check-square"></i></span>
+
             </div>
         </div>
       </div>
