@@ -1,0 +1,21 @@
+
+
+
+
+Tasks completed
+Tasks left to complete
+Tasks running over time
+
+
+
+<% total_etc = 0 %>
+<%= number_tasks = 0 %>
+<% tasks.each do |task1| %>
+  <% if task1.deadline.to_s <= Time.now.to_s && (Time.parse("17:00") - Time.now) < total_etc %>
+    <% total_etc += task1.hours*60 + task1.minutes %>
+  <% else %>
+    <% total_etc += 0 %>
+    <%= number_tasks += 1 %>
+  <% end %>
+<% end %>
+
