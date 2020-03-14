@@ -20,3 +20,31 @@
 .header {
   color: white;
 }
+
+.done-button {
+  // background-color: $finish-button;
+  background-color: #EAECFF;
+  // color: white;
+  // border-radius: 3px;
+  // border-color: $finish-button;
+  // opacity: 0.9;
+  width: 80px;
+  height: 28px;
+  text-align: center;
+  text-decoration: none;
+  color: $finish-button;
+  border: 2px solid #F76C6C;
+  padding: 0px;
+  border-radius: 50px;
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
+  font-weight: bold;
+  margin-right: 0 auto;
+}
+
+.done-button:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: $finish-button;
+  font-weight: bold;
+}

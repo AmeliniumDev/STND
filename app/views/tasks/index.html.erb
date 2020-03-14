@@ -14,7 +14,7 @@ Team's tasks
           <div class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
             <div class="row-task">
               <div class="content-task-deadline task-font">
-                <p><%= task.deadline %></p>
+                <p><%= task.deadline.strftime("%d-%m-%Y") %></p>
               </div>
             <div class="content-task-urgent task-font">
               <% if task.urgent? %>
