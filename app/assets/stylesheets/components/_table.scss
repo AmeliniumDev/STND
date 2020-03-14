@@ -1,6 +1,6 @@
-// css for container for the tablew page
+// CONTAINER FOR THE TABLE PAGE
+
 .table-page {
- // TO DO: set the height ot push footer down
  width: 100%;
  height: 100vh;
  display: flex;
@@ -8,7 +8,8 @@
  justify-content: center;
 }
 
-// table css
+// TABLE
+
 .table {
   display: flex;
   flex-direction: column;
@@ -18,12 +19,14 @@
 }
 
 .row-task{
-  height: 50px;
+  // height: 50px;
   display: flex;
+  margin-bottom: 10px;
 }
 
 .headers {
   display: flex;
+  margin-bottom: 10px;
 }
 
 .content-task {
@@ -38,10 +41,13 @@
   color: white;
   font-size: 16px;
   text-align: left;
+  margin-bottom: 0px;
 }
 
+// INDIVIDUAL HEADERS
+
 .content-task-deadline-header {
-  margin: 0px 2.5px 2.5px 0px;
+  margin-right: 10px;
   border-radius: 10px 0px 0px 0px;
   width: 15%;
   height: 40px;
@@ -51,7 +57,7 @@
 }
 
 .content-task-urgent-header {
-  margin: 0px 2.5px 2.5px 2.5px;
+  margin-right: 10px;
   border-radius: 0px 0px 0px 0px;
   display: flex;
   justify-content: center;
@@ -64,7 +70,7 @@
 }
 
 .content-task-title-header {
-  margin: 0px 2.5px 2.5px 2.5px;
+  margin-right: 10px;
   border-radius: 0px 0px 0px 0px;
   height: 40px;
   padding: 10px;
@@ -74,7 +80,7 @@
 }
 
 .content-task-etc-header {
-  margin: 0px 2.5px 2.5px 2.5px;
+  margin-right: 10px;
   border-radius: 0px 0px 0px 0px;
   width: 10%;
   height: 40px;
@@ -84,7 +90,6 @@
 }
 
 .content-task-owner-header {
-  margin: 0px 0px 2.5px 2.5px;
   border-radius: 0px 10px 0px 0px;
   width: 15%;
   height: 40px;
@@ -92,8 +97,21 @@
   background-color: #5158FE;
   box-shadow: 0 2px 3px rgba(0,0,0,.1);
 }
+
+// individual view only
+.content-task-status-header {
+  border-radius: 10px 0px 0px 0px;
+  width: 15%;
+  height: 40px;
+  padding: 10px;
+  background-color: #5158FE;
+  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+}
+
+// INDIVIDUAL TASK ROWS
+
 .content-task-deadline {
-  margin: 2.5px 2.5px 2.5px 0px;
+  margin-right: 10px;
   border-radius: 10px 0px 0px 10px;
   width: 15%;
   height: 40px;
@@ -101,9 +119,12 @@
   padding: 10px;
   box-shadow: 0 2px 3px rgba(0,0,0,.1);
 }
+.content-task-deadline p {
+  margin-bottom: 0px;
+}
 
 .content-task-urgent {
-  margin: 2.5px 2.5px 2.5px 2.5px;
+  margin-right: 10px;
   border-radius: 0px;
   display: flex;
   justify-content: center;
@@ -116,7 +137,7 @@
 }
 
 .content-task-title {
-  margin: 2.5px 2.5px 2.5px 2.5px;
+  margin-right: 10px;
   height: 40px;
   background-color: #EAECFF;
   border-radius: 0px;
@@ -126,7 +147,7 @@
 }
 
 .content-task-etc {
-  margin: 2.5px 2.5px 2.5px 2.5px;
+  margin-right: 10px;
   width: 10%;
   height: 40px;
   background-color: #EAECFF;
@@ -135,8 +156,11 @@
   box-shadow: 0 2px 3px rgba(0,0,0,.1);
 }
 
+.content-task-etc p {
+  margin-bottom: 0px;
+}
+
 .content-task-owner {
-  margin: 2.5px 0px 2.5px 2.5px;
   border-radius: 0px 10px 10px 0px;
   width: 15%;
   height: 40px;
@@ -147,6 +171,16 @@
   justify-content: center;
   align-items: center;
 }
+
+// individual view only
+.content-task-status {
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// OTHER
 
 .div-collapsed {
   // border: 1px solid black;
@@ -179,24 +213,6 @@
 .fa-pencil-alt:before {
   padding: 0px 7px;
   font-size: 15px;
-}
-
-.content-task-status-header {
-  margin: 0px 2.5px 2.5px 0px;
-  border-radius: 10px 0px 0px 0px;
-  width: 15%;
-  height: 40px;
-  padding: 10px;
-  background-color: #5158FE;
-  box-shadow: 0 2px 3px rgba(0,0,0,.1);
-}
-
-
-.content-task-status {
-  width: 15%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .fa-play-circle:before {
