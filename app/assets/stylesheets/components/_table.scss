@@ -194,9 +194,7 @@
   justify-content: center;
 }
 
-// OTHER
-
-
+// TASK DESCRIPTION - COLLAPSED
 
 .div-collapsed {
   // border: 1px solid black;
@@ -208,25 +206,28 @@
 }
 
 .edit-delete {
-  width: 15%;
-  // background-color: #ededed;
-
+  // width: 15%;
+  width: calc(15% - 5px);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px;
   background-color: #ededed;
   border-radius: 0px 10px 10px 0px;
-  height: 40px;
+  // height to match task-description
+  height: 100%;
 }
 
 .task-description {
-  width: 85%;
+  // width: 85%;
+  width: calc(85% + 5px);
   padding: 10px;
   margin-right: 10px;
   background-color: #ededed;
   border-radius: 10px 0px 0px 10px;
 }
+
+// ICONS
 
 .fa-trash-alt:before {
   padding: 0px 7px;
