@@ -1,6 +1,9 @@
 Team's tasks
-<div class="table-page">
-  <div class="table">
+<span class="tabs active" data-id="outstanding">outstanding tasks</span>
+<span class="tabs" data-id="completed">completed tasks</span>
+<div class="tab-content" id="outstanding">
+  <div class="table-page">
+    <div class="table">
       <!-- COLUMN HEADERS -->
       <div class="headers">
         <h4 class="header-font content-task-deadline-header">Deadline</h4>
@@ -10,12 +13,12 @@ Team's tasks
         <h4 class="header-font content-task-owner-header">Owner</h4>
       </div>
         <!-- ROWS OF TASKS -->
-        <% @tasks.each do |task| %>
-          <div class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
-            <div class="row-task">
-              <div class="content-task-deadline task-font">
-                <p><%= task.deadline %></p>
-              </div>
+      <% @tasks.each do |task| %>
+        <div class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
+          <div class="row-task">
+            <div class="content-task-deadline task-font">
+              <p><%= task.deadline %></p>
+            </div>
             <div class="content-task-urgent task-font">
               <% if task.urgent? %>
                 <%= link_to team_task_path(@team, task, task: {urgent: false, referrer_page: team_tasks_path(@team)}), method: :put do%>
@@ -27,85 +30,76 @@ Team's tasks
                 <% end %>
               <% end %>
             </div>
-              <div class="content-task-title task-font"><%= task.title %></div>
-              <div class="content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
-              <!-- OWNERS -->
-              <div class="content-task-owner task-font">
-                <div class="nav-item dropdown centered">
-                  <!-- if task.user.nil? true: "Not Assigend", false: show avatar -->
-                  <% if task.user.nil? %>
-                    <%= link_to "Not Assigned", edit_user_registration_path, class: "dropdown-toggle links-table-owner no-owner", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="content-task-title task-font"><%= task.title %></div>
+            <div class="content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
+            <!-- OWNERS -->
+            <div class="content-task-owner task-font">
+              <div class="nav-item dropdown centered">
+                <!-- if task.user.nil? true: "Not Assigend", false: show avatar -->
+                <% if task.user.nil? %>
+                  <%= link_to "Not Assigned", edit_user_registration_path, class: "dropdown-toggle links-table-owner no-owner", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% else %>
+                  <!--checking if user has a photo: true: show avatar, false: show "Name Surname" -->
+                  <% if task.user.photo.attached? %>
+                    <%= cl_image_tag task.user.photo.key, class: "avatar-round avatar-small dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <% else %>
-                    <!--checking if user has a photo: true: show avatar, false: show "Name Surname" -->
-                    <% if task.user.photo.attached? %>
-                      <%= cl_image_tag task.user.photo.key, class: "avatar-round avatar-small dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                    <% else %>
-                      <%= link_to "#{task.user.first_name} #{task.user.last_name}", edit_user_registration_path, class: "dropdown-toggle links-table-owner", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                    <% end %>
+                    <%= link_to "#{task.user.first_name} #{task.user.last_name}", edit_user_registration_path, class: "dropdown-toggle links-table-owner", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <% end %>
-                  <!-- showing all team users (avatar / name + surname) in dropdown list -->
-                  <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
+                <% end %>
+                <!-- showing all team users (avatar / name + surname) in dropdown list -->
+                <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
                   <% results = Hash.new %>
-                    <% @team.users.each do |user| %>
+                  <% @team.users.each do |user| %>
+                    <% total_etc = 0 %>
+                    <% id = user.id %>
+                    <% user.tasks.each do |task1| %>
+                      <% if task1.deadline.to_s <= task.deadline.to_s %>
+                        <% total_etc += task1.hours*60 + task1.minutes %>
+                      <% else %>
+                        <% total_etc += 0 %>
+                      <% end %>
+                    <% end %>
 
-                      <% total_etc = 0 %>
-                        <% id = user.id %>
-                          <% user.tasks.each do |task1| %>
-                            <% if task1.deadline.to_s <= task.deadline.to_s %>
-                              <% total_etc += task1.hours*60 + task1.minutes %>
-                            <% else %>
-                              <% total_etc += 0 %>
-                            <% end %>
-                          <% end %>
-
-                      <div class="etc-avatar">
+                    <div class="etc-avatar">
                       <% if user.photo.attached? %>
                         <%= link_to team_task_path(@team, task, task: { user_id: user.id}), method: :put, class: "dropdown-item" do %>
-
                           <%= cl_image_tag user.photo.key, class: "avatar-round avatar-small text-center" %>
-
                         <% end %>
                       <% else %>
                         <%= link_to "#{user.first_name} #{user.last_name}", team_task_path(@team, task, task: { user_id: user.id}), method: :put, class: "dropdown-item", data: { toggle: "" }, 'aria-expanded': false %>
                       <% end %>
-                          <%= (total_etc/60).to_f.round %>
-                          <p> h </p>
-                      </div>
-
-                    <% end %>
-
-                  </div>
+                      <%= (total_etc/60).to_f.round %>
+                      <p> h </p>
+                    </div>
+                  <% end %>
                 </div>
               </div>
             </div>
           </div>
-          <div class="collapse div-collapsed" id=<%= "task#{task.id}" %>>
-            <div class="task-description">
-              <%= task.description %>
-            </div>
-            <div class="edit-delete">
-              <a class="" href="#">
-                <i class="fas fa-pencil-alt" data-toggle="modal" data-target="#editModal<%=task.id%>"></i>
-                <%= render "edit", team: @team, task: task %>
-              </a>
-              <%= link_to team_task_path(@team, task), method: :delete, data: {confirm: "Are you sure?"} do %>
-                <i class="fas fa-trash-alt"></i>
-              <% end %>
-            </div>
+        </div>
+        <div class="collapse div-collapsed" id=<%= "task#{task.id}" %>>
+          <div class="task-description">
+            <%= task.description %>
           </div>
-        <% end %>
+          <div class="edit-delete">
+            <a class="" href="#">
+              <i class="fas fa-pencil-alt" data-toggle="modal" data-target="#editModal<%=task.id%>"></i>
+              <%= render "edit", team: @team, task: task %>
+            </a>
+            <%= link_to team_task_path(@team, task), method: :delete, data: {confirm: "Are you sure?"} do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
-
-
-
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Completed tasks
-</button>
-<div class="completed-tasks-collapse" id="collapseExample">
-  <div class="card card-body">
-    <div class="table-page">
-      <div class="table">
+<div class="tab-content d-none" id="completed">
+  <div class="completed-tasks-collapse" id="collapseExample">
+    <div class="card card-body">
+      <div class="table-page">
+        <div class="table">
           <div class="headers">
             <h4 class="header-font content-task-deadline-header">Deadline</h4>
             <h4 class="header-font content-task-urgent-header"><i class="fas fa-arrow-circle-up header"></i></h4>
@@ -113,72 +107,85 @@ Team's tasks
             <h4 class="header-font content-task-etc-header"><i class="far fa-clock"></i></h4>
             <h4 class="header-font content-task-owner-header">Owner</h4>
           </div>
-            <% @completed_tasks.each do |task| %>
-              <div class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
-                <div class="row-task">
-                  <div class="content-task-deadline task-font">
-                    <p><%= task.deadline %></p>
-                  </div>
-                <div class="content-task-urgent task-font">
-                  <% if task.urgent? %>
-                    <%= link_to team_task_path(@team, task, task: {urgent: false, referrer_page: team_tasks_path(@team)}), method: :put do%>
-                      <i class="fas fa-arrow-circle-up"></i>
-                    <% end %>
-                  <% else %>
-                    <%= link_to team_task_path(@team, task, task: {urgent: true, referrer_page: team_tasks_path(@team)}), method: :put do%>
-                      <i class="far fa-circle"></i>
-                    <% end %>
-                  <% end %>
+          <% @completed_tasks.each do |task| %>
+            <div class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
+              <div class="row-task">
+                <div class="content-task-deadline task-font">
+                  <p><%= task.deadline %></p>
                 </div>
-                  <div class="content-task-title task-font"><%= task.title %></div>
-                  <div class="content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
-                  <div class="content-task-owner task-font">
-                    <div class="nav-item dropdown centered">
-                      <!-- if task.user.nil? true: "Not Assigend", false: show avatar -->
-                      <% if task.user.nil? %>
-                        <%= link_to "Not Assigned", edit_user_registration_path, class: "dropdown-toggle links-table-owner no-owner", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="content-task-urgent task-font">
+                <% if task.urgent? %>
+                  <%= link_to team_task_path(@team, task, task: {urgent: false, referrer_page: team_tasks_path(@team)}), method: :put do%>
+                    <i class="fas fa-arrow-circle-up"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to team_task_path(@team, task, task: {urgent: true, referrer_page: team_tasks_path(@team)}), method: :put do%>
+                    <i class="far fa-circle"></i>
+                  <% end %>
+                <% end %>
+              </div>
+                <div class="content-task-title task-font"><%= task.title %></div>
+                <div class="content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
+                <div class="content-task-owner task-font">
+                  <div class="nav-item dropdown centered">
+                    <!-- if task.user.nil? true: "Not Assigend", false: show avatar -->
+                    <% if task.user.nil? %>
+                      <%= link_to "Not Assigned", edit_user_registration_path, class: "dropdown-toggle links-table-owner no-owner", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <% else %>
+                      <!--checking if user has a photo: true: show avatar, false: show "Name Surname" -->
+                      <% if task.user.photo.attached? %>
+                        <%= cl_image_tag task.user.photo.key, class: "avatar-round avatar-small dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                       <% else %>
-                        <!--checking if user has a photo: true: show avatar, false: show "Name Surname" -->
-                        <% if task.user.photo.attached? %>
-                          <%= cl_image_tag task.user.photo.key, class: "avatar-round avatar-small dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                        <%= link_to "#{task.user.first_name} #{task.user.last_name}", edit_user_registration_path, class: "dropdown-toggle links-table-owner", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                      <% end %>
+                    <% end %>
+                    <!-- showing all team users (avatar / name + surname) in dropdown list -->
+                    <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
+                      <% @team.users.each do |user| %>
+                        <% if user.photo.attached? %>
+                          <%= link_to team_task_path(@team, task, task: { user_id: user.id}), method: :put, class: "dropdown-item" do %>
+                            <%= cl_image_tag user.photo.key, class: "avatar-round avatar-small text-center" %>
+                          <% end %>
                         <% else %>
-                          <%= link_to "#{task.user.first_name} #{task.user.last_name}", edit_user_registration_path, class: "dropdown-toggle links-table-owner", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                          <%= link_to "#{user.first_name} #{user.last_name}", team_task_path(@team, task, task: { user_id: user.id}), method: :put, class: "dropdown-item", data: { toggle: "" }, 'aria-expanded': false %>
                         <% end %>
                       <% end %>
-                      <!-- showing all team users (avatar / name + surname) in dropdown list -->
-                      <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
-                        <% @team.users.each do |user| %>
-                          <% if user.photo.attached? %>
-                            <%= link_to team_task_path(@team, task, task: { user_id: user.id}), method: :put, class: "dropdown-item" do %>
-                              <%= cl_image_tag user.photo.key, class: "avatar-round avatar-small text-center" %>
-                            <% end %>
-                          <% else %>
-                            <%= link_to "#{user.first_name} #{user.last_name}", team_task_path(@team, task, task: { user_id: user.id}), method: :put, class: "dropdown-item", data: { toggle: "" }, 'aria-expanded': false %>
-                          <% end %>
-                        <% end %>
-                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="collapse div-collapsed" id=<%= "task#{task.id}" %>>
-                <div class="task-description">
-                  <%= task.description %>
-                </div>
-                <div class="edit-delete">
-                  <a class="" href="#">
-                    <i class="fas fa-pencil-alt" data-toggle="modal" data-target="#editModal<%=task.id%>"></i>
-                    <%= render "edit", team: @team, task: task %>
-                  </a>
-                  <%= link_to team_task_path(@team, task), method: :delete, data: {confirm: "Are you sure?"} do %>
-                    <i class="fas fa-trash-alt"></i>
-                  <% end %>
-                </div>
+            </div>
+            <div class="collapse div-collapsed" id=<%= "task#{task.id}" %>>
+              <div class="task-description">
+                <%= task.description %>
               </div>
-            <% end %>
+              <div class="edit-delete">
+                <a class="" href="#">
+                  <i class="fas fa-pencil-alt" data-toggle="modal" data-target="#editModal<%=task.id%>"></i>
+                  <%= render "edit", team: @team, task: task %>
+                </a>
+                <%= link_to team_task_path(@team, task), method: :delete, data: {confirm: "Are you sure?"} do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
-
   </div>
 </div>
 
+<script>
+  const tabs = document.querySelectorAll('.tabs');
+  const tabContents = document.querySelectorAll('.tab-content');
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', (event) => {
+      tabs.forEach(t => t.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      tabContents.forEach((content) => {
+        content.classList.toggle('d-none', content.id !== event.currentTarget.dataset.id);
+      });
+    });
+  })
+</script>
