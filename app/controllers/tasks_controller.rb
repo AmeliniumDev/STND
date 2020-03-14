@@ -16,7 +16,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.team = @team
     if @task.save
-      redirect_to team_tasks_path(@team)
+      redirect_back(fallback_location: root_path)
     else
       render :new
     end
@@ -27,7 +27,8 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to team_tasks_path(@team)
+      # redirect_to :back
+      redirect_back(fallback_location: root_path)
     else
       render :edit
     end
