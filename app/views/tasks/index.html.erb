@@ -12,20 +12,20 @@
 
       <!-- COLUMN HEADERS -->
       <div class="headers">
-        <h4 class="header-font content-task-deadline-header">Deadline</h4>
-        <h4 class="header-font content-task-urgent-header"><i class="fas fa-arrow-circle-up header"></i></h4>
-        <h4 class="header-font content-task-title-header">Title</h4>
-        <h4 class="header-font content-task-etc-header"><i class="far fa-clock"></i></h4>
-        <h4 class="header-font content-task-owner-header">Owner</h4>
+        <h4 class="header-cell header-font content-task-deadline-header">Deadline</h4>
+        <h4 class="header-cell header-font content-task-urgent-header"><i class="fas fa-arrow-circle-up header"></i></h4>
+        <h4 class="header-cell header-font content-task-title-header">Title</h4>
+        <h4 class="header-cell header-font content-task-etc-header"><i class="far fa-clock"></i></h4>
+        <h4 class="header-cell header-font content-task-owner-header">Owner</h4>
       </div>
         <!-- ROWS OF TASKS -->
         <% @tasks.each do |task| %>
           <div class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
             <div class="row-task">
-              <div class="content-task-deadline task-font">
+              <div class="row-cell content-task-deadline task-font">
                 <p><%= task.deadline.strftime("%d-%m-%Y") %></p>
               </div>
-            <div class="content-task-urgent task-font">
+            <div class="row-cell content-task-urgent task-font">
               <% if task.urgent? %>
                 <%= link_to team_task_path(@team, task, task: {urgent: false, referrer_page: team_tasks_path(@team)}), method: :put do%>
                   <i class="fas fa-arrow-circle-up"></i>
@@ -36,10 +36,10 @@
                 <% end %>
               <% end %>
             </div>
-            <div class="content-task-title task-font"><%= task.title %></div>
-            <div class="content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
+            <div class="row-cell content-task-title task-font"><%= task.title %></div>
+            <div class="row-cell content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
             <!-- OWNERS -->
-            <div class="content-task-owner task-font">
+            <div class="row-cell content-task-owner task-font">
               <div class="nav-item dropdown centered">
                 <!-- if task.user.nil? true: "Not Assigend", false: show avatar -->
                 <% if task.user.nil? %>
@@ -104,16 +104,16 @@
 
     <div class="table">
       <div class="headers">
-        <h4 class="header-font content-task-deadline-header">Deadline</h4>
-        <h4 class="header-font content-task-urgent-header"><i class="fas fa-arrow-circle-up header"></i></h4>
-        <h4 class="header-font content-task-title-header">Title</h4>
-        <h4 class="header-font content-task-etc-header"><i class="far fa-clock"></i></h4>
-        <h4 class="header-font content-task-owner-header">Owner</h4>
+        <h4 class="header-cell header-font content-task-deadline-header">Deadline</h4>
+        <h4 class="header-cell header-font content-task-urgent-header"><i class="fas fa-arrow-circle-up header"></i></h4>
+        <h4 class="header-cell header-font content-task-title-header">Title</h4>
+        <h4 class="header-cell header-font content-task-etc-header"><i class="far fa-clock"></i></h4>
+        <h4 class="header-cell header-font content-task-owner-header">Owner</h4>
       </div>
       <% @completed_tasks.each do |task| %>
         <div class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
           <div class="row-task">
-            <div class="content-task-deadline task-font">
+            <div class="row-cell content-task-deadline task-font">
               <p><%= task.deadline %></p>
             </div>
           <div class="content-task-urgent task-font">
@@ -127,9 +127,9 @@
               <% end %>
             <% end %>
           </div>
-            <div class="content-task-title task-font"><%= task.title %></div>
-            <div class="content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
-            <div class="content-task-owner task-font">
+            <div class="row-cell content-task-title task-font"><%= task.title %></div>
+            <div class="row-cell content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
+            <div class="row-cell content-task-owner task-font">
               <div class="nav-item dropdown centered">
                 <!-- if task.user.nil? true: "Not Assigend", false: show avatar -->
                 <% if task.user.nil? %>
