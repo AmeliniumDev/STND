@@ -18,7 +18,7 @@
   display: flex;
   justify-content: center;
   border-radius: 10px 0px 0px 0px;
-  box-shadow: 0 3px 4px rgba(0,0,0,.1);
+  box-shadow: 0 3px 4px rgba(0,0,0,.2);
 
 }
 
@@ -33,11 +33,11 @@
   display: flex;
   justify-content: center;
   border-radius: 0px 10px 0px 0px;
-  box-shadow: 0 3px 4px rgba(0,0,0,.1);
+  box-shadow: 0 3px 4px rgba(0,0,0,.2);
 }
 
 .active {
   background-color: $tab-active-background;
   color: $tab-active-text;
-  box-shadow: 0 3px 4px rgba(0,0,0,.3);
+  box-shadow: 0 3px 4px rgba(0,0,0,.4);
 }

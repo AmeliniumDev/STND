@@ -107,7 +107,7 @@
   height: 45px;
   background-color: $table-row;
   padding: 10px;
-  box-shadow: 0 3px 4px rgba(0,0,0,.1);
+  box-shadow: 0 3px 4px rgba(0,0,0,.2);
 }
 
 .content-task {
@@ -197,7 +197,7 @@
   padding: 10px;
   background-color: $task-description-background;
   border-radius: 0px 10px 10px 0px;
-  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+  box-shadow: 0 2px 3px rgba(0,0,0,.2);
   // height to match task-description
   // height: 100%;
 }
@@ -209,7 +209,7 @@
   margin-right: 10px;
   background-color: $task-description-background;
   border-radius: 10px 0px 0px 10px;
-  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+  box-shadow: 0 2px 3px rgba(0,0,0,.2);
 }
 
 // ICONS
@@ -217,11 +217,13 @@
 .fa-trash-alt:before {
   padding: 0px 7px;
   font-size: 15px;
+  color: $table-header;
 }
 
 .fa-pencil-alt:before {
   padding: 0px 7px;
   font-size: 15px;
+  color: $table-header;
 }
 
 .fa-play-circle:before {
