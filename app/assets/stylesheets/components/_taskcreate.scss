@@ -20,6 +20,7 @@
   border-radius: 50px;
   border-color: $navbar-background;
   opacity: .9;
+  margin-top: 2rem;
 }
 
 .btn-primary:hover {
@@ -46,4 +47,8 @@
   border: 1px solid #ced4da;
   background-image: none;
   padding-right: 2px;
+}
+
+.form-group.time{
+  margin-bottom: 0.2rem;
 }

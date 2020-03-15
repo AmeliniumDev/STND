@@ -3,8 +3,9 @@
     <%= f.input :title, label: "Title", placeholder: "Task Title" %>
     <%= f.input :description, label: "Description", placeholder: "Task Description" %>
     <%= f.input :deadline %>
+    <%#= f.input :first_name, :as => :select %>
     <div class="etc">
-      <p class="form-group">Estimated time needed:</p>
+      <p class="form-group time">Estimated time needed</p>
       <div class="etc-row">
         <%= f.input :hours, label:"Hours"%>
         <%= f.input :minutes, label: "Minutes"%>
