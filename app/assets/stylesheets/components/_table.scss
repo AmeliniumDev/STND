@@ -31,7 +31,7 @@
 }
 
 .header-cell {
-  height: 40px;
+  height: 45px;
   padding: 10px;
   background-color: $table-header;
   box-shadow: 0 3px 4px rgba(0,0,0,.3);
@@ -41,6 +41,8 @@
   color: $table-header-text;
   font-size: 16px;
   text-align: left;
+  display: flex;
+  align-items: center;
   margin-bottom: 0px;
 }
 
@@ -102,7 +104,7 @@
 }
 
 .row-cell {
-  height: 40px;
+  height: 45px;
   background-color: $table-row;
   padding: 10px;
   box-shadow: 0 3px 4px rgba(0,0,0,.1);
