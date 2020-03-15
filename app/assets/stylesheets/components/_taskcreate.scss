@@ -19,6 +19,13 @@
   background-color: $navbar-background;
   border-radius: 50px;
   border-color: $navbar-background;
+  opacity: .9;
+}
+
+.btn-primary:hover {
+  background-color: $navbar-background;
+  border-color: $navbar-background;
+  opacity: 1;
 }
 
 .form-control {
