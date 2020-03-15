@@ -2,8 +2,10 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
 
 // Define fonts for body and headers
-$body-font: "Open Sans", "Helvetica", "sans-serif";
-$headers-font: "Raleway", "Helvetica", "sans-serif";
+// $body-font: "Open Sans", "Helvetica", "sans-serif";
+// $headers-font: "Raleway", "Helvetica", "sans-serif";
+$body-font: "Hind", "Helvetica", "sans-serif";
+$headers-font: "Assistant", "Helvetica", "sans-serif";
 
 $landing-h1-1: "Courgette";
 $landing-h1-2: "Damion";
@@ -18,3 +20,12 @@ $landing-h1-3: "Kreon";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+// font-family: 'Dosis', sans-serif; - okfor logo / NOT FOR TEXT
+// font-family: 'Barlow', sans-serif; - great for logo / ok for text
+// font-family: 'Hind', sans-serif;
+// font-family: 'Hind Siliguri', sans-serif;
+// font-family: 'Assistant', sans-serif;
+// font-family: 'Courgette', cursive;
+// font-family: 'Damion', cursive;
+// font-family: 'Kreon', serif;

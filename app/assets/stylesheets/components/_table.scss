@@ -9,6 +9,18 @@
  justify-content: center;
 }
 
+.table-page h1 h2 h3 h4 {
+  font-family: $headers-font;
+}
+
+.tab-headers {
+  font-family: $headers-font;
+}
+
+.table-page p {
+  font-family: $body-font;
+}
+
 .card-body {
   background-color: $light-gray;
   border: none;
@@ -35,6 +47,7 @@
   padding: 10px;
   background-color: $table-header;
   box-shadow: 0 3px 4px rgba(0,0,0,.3);
+  font-weight: bolder;
 }
 
 .header-font {
@@ -120,6 +133,11 @@
   display: flex;
   align-items: center;
 }
+
+.task-font p {
+  margin-bottom: 0px;
+}
+
 // INDIVIDUAL TASK ROWS
 
 .content-task-deadline {
