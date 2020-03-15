@@ -1,19 +1,19 @@
 <div class="table-page">
   <div class="table">
     <div class="headers">
-      <h4 class="header-font content-task-deadline-header">Deadline</h4>
-      <h4 class="header-font content-task-urgent-header"><i class="fas fa-arrow-circle-up header"></i></h4>
-      <h4 class="header-font content-task-title-header">Title</h4>
-      <h4 class="header-font content-task-etc-header"><i class="far fa-clock"></i></h4>
-      <h4 class="header-font content-task-status-header">Status</h4>
+      <h4 class="header-cell header-font content-task-deadline-header">Deadline</h4>
+      <h4 class="header-cell header-font content-task-urgent-header"><i class="fas fa-arrow-circle-up header"></i></h4>
+      <h4 class="header-cell header-font content-task-title-header">Title</h4>
+      <h4 class="header-cell header-font content-task-etc-header"><i class="far fa-clock"></i></h4>
+      <h4 class="header-cell header-font content-task-status-header">Status</h4>
     </div>
     <% @tasks.each do |task| %>
       <div  class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
         <div class="row-task">
-          <div class="content-task-deadline task-font">
+          <div class="row-cell content-task-deadline task-font">
             <p><%= task.deadline.strftime("%d-%m-%Y") %></p>
           </div>
-        <div class="content-task-urgent task-font">
+        <div class="row-cell content-task-urgent task-font">
           <% if task.urgent? %>
             <%= link_to team_task_path(@team, task, task: { urgent: false }), method: :put do%>
               <i class="fas fa-arrow-circle-up"></i>
@@ -24,9 +24,9 @@
             <% end %>
           <% end %>
         </div>
-            <div class="content-task-title task-font"><%= task.title %></div>
-            <div class="content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
-            <div class="content-task-status task-font">
+            <div class="row-cell content-task-title task-font"><%= task.title %></div>
+            <div class="row-cell content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
+            <div class="row-cell content-task-status task-font">
               <%= link_to team_task_path(@team, task, task: { complete: true }), method: :put do %>
                <!--  <p class= "finish-button"> Finish </p> -->
                 <button class="done-button" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">✓ Done</button>

@@ -1,10 +1,10 @@
 .links-banner-main {
-  background-color: #F76C6C;
+  background-color: $landing-button;
   text-align: center;
   // width: 250px;
   // height: 70px;
   text-decoration:none;
-  color: white;
+  color: $landing-text;
   font-size: 20px;
   border: 3px solid #F76C6C;
   padding: 10px 25px 10px 25px;
@@ -18,42 +18,28 @@
 
 
 .links-banner-about {
-  // background-color: #F76C6C;
   text-align: center;
-  // width: 200px;
-  // height: 50px;
   text-decoration: none;
-  color: white;
+  color: $landing-text;
   font-size: 20px;
-  border: 3px solid #F76C6C;
+  border: 3px solid $landing-button;
   padding: 10px 25px 10px 25px;
   border-radius: 50px;
   opacity: 0.75;
   transition: opacity 0.3s ease;
   font-weight: bold;
   margin-right: 10px;
-  // margin-bottom: 20px;
 }
 
 .links-table-owner {
-  // background-color: #F76C6C;
-  // text-align: center;
-  // width: 200px;
-  // height: 50px;
   text-decoration: none;
   color: black;
   font-size: 16px;
-  // border: 3px solid #F76C6C;
-  // padding: 10px 25px 10px 25px;
-  // border-radius: 50px;
   opacity: 0.95;
   transition: opacity 0.3s ease;
-  // font-weight: bold;
-  // margin-right: 10px;
-  // margin-bottom: 20px;
 }
 .no-owner {
-  color: #F76C6C;
+  color: $urgent;
 }
 
 // small buttons for navbar
@@ -67,14 +53,14 @@
   // background: linear-gradient(#F76C6C, #F76060);
   // border: 3px solid #F76060 transparent;
   text-decoration: none;
-  color: white;
+  color: $landing-text;
   font-weight: bold;
 }
 
 .links-banner-about:hover {
   opacity: 1;
   text-decoration: none;
-  color: white;
+  color: $landing-text;
   // font-weight: bold;
 }
 .links-table-owner:hover {
@@ -83,7 +69,7 @@
   color: black;
 }
 .no-owner:hover {
-  color: #F76C6C;
+  color: $urgent;
 }
 
 .btn-primary {
