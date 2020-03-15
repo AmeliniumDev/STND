@@ -23,7 +23,7 @@
 
 .done-button {
   // background-color: $finish-button;
-  background-color: #EAECFF;
+  background-color: $table-row;
   // color: white;
   // border-radius: 3px;
   // border-color: $finish-button;
@@ -33,7 +33,7 @@
   text-align: center;
   text-decoration: none;
   color: $finish-button;
-  border: 2px solid #F76C6C;
+  border: 2px solid $urgent-button;
   padding: 0px;
   border-radius: 50px;
   opacity: 0.75;
