@@ -117,6 +117,8 @@
 .task-font {
   font-size: 16px;
   color: $table-row-text;
+  display: flex;
+  align-items: center;
 }
 // INDIVIDUAL TASK ROWS
 
