@@ -31,7 +31,7 @@
 }
 
 .header-cell {
-  height: 40px;
+  height: 45px;
   padding: 10px;
   background-color: $table-header;
   box-shadow: 0 3px 4px rgba(0,0,0,.3);
@@ -41,6 +41,8 @@
   color: $table-header-text;
   font-size: 16px;
   text-align: left;
+  display: flex;
+  align-items: center;
   margin-bottom: 0px;
 }
 
@@ -102,10 +104,10 @@
 }
 
 .row-cell {
-  height: 40px;
+  height: 45px;
   background-color: $table-row;
   padding: 10px;
-  box-shadow: 0 3px 4px rgba(0,0,0,.1);
+  box-shadow: 0 3px 4px rgba(0,0,0,.2);
 }
 
 .content-task {
@@ -115,6 +117,8 @@
 .task-font {
   font-size: 16px;
   color: $table-row-text;
+  display: flex;
+  align-items: center;
 }
 // INDIVIDUAL TASK ROWS
 
@@ -193,7 +197,7 @@
   padding: 10px;
   background-color: $task-description-background;
   border-radius: 0px 10px 10px 0px;
-  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+  box-shadow: 0 2px 3px rgba(0,0,0,.2);
   // height to match task-description
   // height: 100%;
 }
@@ -205,7 +209,7 @@
   margin-right: 10px;
   background-color: $task-description-background;
   border-radius: 10px 0px 0px 10px;
-  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+  box-shadow: 0 2px 3px rgba(0,0,0,.2);
 }
 
 // ICONS
@@ -213,11 +217,13 @@
 .fa-trash-alt:before {
   padding: 0px 7px;
   font-size: 15px;
+  color: $table-header;
 }
 
 .fa-pencil-alt:before {
   padding: 0px 7px;
   font-size: 15px;
+  color: $table-header;
 }
 
 .fa-play-circle:before {
