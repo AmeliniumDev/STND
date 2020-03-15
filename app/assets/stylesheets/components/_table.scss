@@ -217,12 +217,20 @@
 .fa-trash-alt:before {
   padding: 0px 7px;
   font-size: 15px;
+  color: lighten($table-header, 5%);
+}
+
+.fa-trash-alt:hover {
   color: $table-header;
 }
 
 .fa-pencil-alt:before {
   padding: 0px 7px;
   font-size: 15px;
+  color: lighten($table-header, 5%);
+}
+
+.fa-pencil-alt:hover {
   color: $table-header;
 }
 
