@@ -22,9 +22,9 @@
         </li>
         <!-- STATS ICON -->
         <li class="nav-item">
-          <a class="navbar-brand" href="#">
+          <%= link_to team_analytics_path(current_user.team), class: "navbar-brand" do%>
             <i class="fas fa-chart-line"></i>
-          </a>
+          <% end %>
         </li>
         <!-- TEAM ICON - DROPDOWN MENU -->
         <li class="nav-item">

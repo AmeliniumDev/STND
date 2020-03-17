@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     end
 
     resources :users, only: :show
+    resources :analytics, only: :index
   end
 
   root to: 'pages#home'
