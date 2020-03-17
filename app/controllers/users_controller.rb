@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @tasks = @user.tasks
+    @tasks = @user.tasks.where(complete: false)
     @team = @user.team
+    @completed_tasks = Task.where(team: @team, complete: true, user: @user).reorder('deadline ASC', 'urgent DESC', 'etc ASC')
   end
 end
