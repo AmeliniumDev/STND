@@ -1,9 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-pages">
   <div>
-    <a class="navbar-logo" href="#">
+    <div class="navbar-logo">
+      <%= link_to team_tasks_path(current_user.team) do%>
       <%= image_tag "white-logo.png", class: "logo", alt: "alttext" %>
       <h1> ST&ND </h1>
-    </a>
+      <% end %>
+    </div>
   </div>
 
   <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
