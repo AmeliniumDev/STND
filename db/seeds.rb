@@ -82,7 +82,7 @@ Task.create!(
 Task.create!(
   title: "Send contracts to Ashurst",
   description: "Contracts need to be sent ASAP to John from marketing at Ashurst.",
-  deadline: '2020-03-20',
+  deadline: '2020-03-25',
   hours: 3,
   minutes: 30,
   urgent: false,
@@ -91,8 +91,8 @@ Task.create!(
   )
 Task.create!(
   title: "Write press release for Trippify",
-  description: "Launch is on the 15th.",
-  deadline: '2020-03-18',
+  description: "Launch is on the 25th.",
+  deadline: '2020-03-25',
   hours: 2,
   minutes: 0,
   urgent: false,
@@ -102,7 +102,7 @@ Task.create!(
 Task.create!(
   title: "Create minutes - board meeting",
   description: "Updates on recruitment for Alex's post.",
-  deadline: '2020-03-15',
+  deadline: '2020-03-23',
   hours: 1,
   minutes: 45,
   urgent: false,
@@ -112,7 +112,7 @@ Task.create!(
 Task.create!(
   title: "Prepare board meeting deck",
   description: "Water, coffee, tea, snacks, fruits, cups, plates, and napkins. Connect Amy's laptop to the screen.",
-  deadline: '2020-03-15',
+  deadline: '2020-03-23',
   hours: 7,
   minutes: 0,
   urgent: false,
@@ -141,7 +141,7 @@ Task.create!(
 Task.create!(
   title: "Arrange meeting with new client - Bolt",
   description: "Prepare presentation on 'How to beat Uber'.",
-  deadline: '2020-03-15',
+  deadline: '2020-03-23',
   hours: 0,
   minutes: 15,
   urgent: false,
@@ -151,7 +151,7 @@ Task.create!(
 Task.create!(
   title: "Arrange staff lunch delivery from BunBunBun on Mondays",
   description: "Ask staff for allergies and meat/vegetarian/vegan options.",
-  deadline: '2020-03-21',
+  deadline: '2020-03-26',
   hours: 1,
   minutes: 30,
   urgent: false,
@@ -159,9 +159,9 @@ Task.create!(
   user_id: 4
   )
 Task.create!(
-  title: "Organise team meeting on the 15th",
+  title: "Organise team meeting on the 26th",
   description: "Discuss recent developments and introduce new team members.",
-  deadline: '2020-03-15',
+  deadline: '2020-03-26',
   hours: 0,
   minutes: 15,
   urgent: false,
