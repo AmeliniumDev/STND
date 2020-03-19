@@ -266,10 +266,31 @@
 
 .etc-avatar {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: left;
+  margin: 10px 15px 10px 10px;
 }
 
 .etc-avatar p{
-  margin: 0;
+  margin: 0px;
 }
+
+.dropdown-menu-right {
+border-radius: 10px;
+border: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
