@@ -1,10 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-pages">
-  <div>
-    <a class="navbar-logo" href="#">
+    <%= link_to team_tasks_path(current_user.team), class: "navbar-logo" do %>
       <%= image_tag "white-logo.png", class: "logo", alt: "alttext" %>
       <h1> ST&ND </h1>
-    </a>
-  </div>
+    <% end %>
+
 
   <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -73,9 +72,9 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Your profile", edit_user_registration_path, class: "dropdown-item" %>
             <!-- created temporary link to user tasks in help !!!!!TO CHANGE!!!!! -->
-            <%= link_to "Help", user_tasks_team_tasks_path(current_user.team), class: "dropdown-item" %>
+            <%= link_to "My Tasks", user_tasks_team_tasks_path(current_user.team), class: "dropdown-item" %>
             <!-- created temporary link to team tasks in help !!!!!TO CHANGE!!!!! -->
-            <%= link_to "Settings", team_tasks_path(current_user.team), class: "dropdown-item" %>
+            <%= link_to "Team Tasks", team_tasks_path(current_user.team), class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
