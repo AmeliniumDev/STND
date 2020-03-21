@@ -32,6 +32,7 @@ User.create!(
   email: "s@o.com",
   first_name: "Stephanie",
   last_name: "Opdam",
+  manager: true,
   team_id: 1
 )
 User.create!(
@@ -39,6 +40,7 @@ User.create!(
   email: "a@u.com",
   first_name: "Amelia",
   last_name: "Urbanowicz",
+  manager: true,
   team_id: 1
 )
 User.create!(
@@ -120,7 +122,7 @@ Task.create!(
   hours: 0,
   minutes: 30,
   urgent: false,
-  team_id: 5
+  team_id: 1
   )
 Task.create!(
   title: "Send invoices to SuperCycle",
@@ -281,7 +283,7 @@ Task.create!(
   hours: 0,
   minutes: 15,
   urgent: false,
-  team_id: 2,
+  team_id: 1,
   user_id: 1
   )
 
@@ -292,7 +294,7 @@ Task.create!(
   hours: 0,
   minutes: 15,
   urgent: true,
-  team_id: 2,
+  team_id: 1,
   user_id: 3
   )
 
@@ -303,7 +305,7 @@ Task.create!(
   hours: 0,
   minutes: 15,
   urgent: false,
-  team_id: 2,
+  team_id: 1,
   user_id: 2
   )
 
@@ -314,7 +316,7 @@ Task.create!(
   hours: 0,
   minutes: 30,
   urgent: false,
-  team_id: 2,
+  team_id: 1,
   user_id: 1
   )
 
@@ -325,7 +327,7 @@ Task.create!(
   hours: 1,
   minutes: 0,
   urgent: false,
-  team_id: 2,
+  team_id: 1,
   user_id: 3
   )
 
