@@ -17,6 +17,7 @@ puts "Seed the database"
 Company.create!(
   name: "STND"
 )
+# TEAMS
 Team.create!(
   team_name: "Developers",
   company_id: 1
@@ -25,6 +26,7 @@ Team.create!(
   team_name: "Frontend",
   company_id: 1
 )
+# USERS - team 1
 User.create!(
   password: '123456',
   email: "s@o.com",
@@ -61,6 +63,7 @@ User.create!(
   last_name: "Smith",
   team_id: 1
 )
+# USERS - team 2
 User.create!(
   password: '123456',
   email: "j@b.com",
@@ -69,6 +72,7 @@ User.create!(
   manager: true,
   team_id: 2
 )
+# TASKS - team 1
 Task.create!(
   title: "Hire a replacement for Alex",
   description: "Before he leaves on the 24th of March.",
@@ -110,7 +114,7 @@ Task.create!(
   user_id: 1
   )
 Task.create!(
-  title: "Prepare board meeting deck",
+  title: "Prepare meeting room for 1 pm",
   description: "Water, coffee, tea, snacks, fruits, cups, plates, and napkins. Connect Amy's laptop to the screen.",
   deadline: '2020-03-23',
   hours: 7,
@@ -121,7 +125,7 @@ Task.create!(
 Task.create!(
   title: "Send invoices to SuperCycle",
   description: "Launching the website.",
-  deadline: '2020-03-12',
+  deadline: '2020-03-23',
   hours: 2,
   minutes: 0,
   urgent: true,
@@ -159,8 +163,119 @@ Task.create!(
   user_id: 4
   )
 Task.create!(
-  title: "Organise team meeting on the 26th",
-  description: "Discuss recent developments and introduce new team members.",
+  title: "Draft April's strategy",
+  description: "Prepare a draft of the teams plan/strategy for April prior to Dominic's phone call",
+  deadline: '2020-03-25',
+  hours: 1,
+  minutes: 00,
+  urgent: false,
+  team_id: 1,
+  user_id: 1
+  )
+Task.create!(
+  title: "Conference call with Dominic",
+  description: "Setup conference call with Dominic to discuss April's strategy",
+  deadline: '2020-03-27',
+  hours: 2,
+  minutes: 00,
+  urgent: false,
+  team_id: 1,
+  user_id: 1
+  )
+Task.create!(
+  title: "Final version of April's strategy",
+  description: "Merge with Dominic's, send it out to the board of directors and team once approved.",
+  deadline: '2020-03-27',
+  hours: 1,
+  minutes: 30,
+  urgent: false,
+  team_id: 1,
+  user_id: 1
+  )
+Task.create!(
+  title: "QC the contract for New River",
+  description: "Send for signature to Kathryn",
+  deadline: '2020-03-27',
+  hours: 1,
+  minutes: 00,
+  urgent: false,
+  team_id: 1,
+  user_id: 2
+  )
+Task.create!(
+  title: "Add new clients to the database",
+  description: "Speedy Equipment, Handmade Sandwich, Soho Socks",
+  deadline: '2020-03-27',
+  hours: 1,
+  minutes: 00,
+  urgent: false,
+  team_id: 1,
+  user_id: 5
+  )
+Task.create!(
+  title: "Speedy Equipment - ad strategy",
+  description: "Discuss with Karen the latest developments",
+  deadline: '2020-03-27',
+  hours: 1,
+  minutes: 30,
+  urgent: false,
+  team_id: 1,
+  user_id: 4
+  )
+Task.create!(
+  title: "Speedy Equipment - arrange meeting",
+  description: "To discuss initial ad ideas and branding",
+  deadline: '2020-03-30',
+  hours: 1,
+  minutes: 30,
+  urgent: false,
+  team_id: 1,
+  user_id: 4
+  )
+Task.create!(
+  title: "Handmade Sandwich - food testing",
+  description: "Know what you are selling! #best_job_ever",
+  deadline: '2020-03-30',
+  hours: 1,
+  minutes: 30,
+  urgent: false,
+  team_id: 1,
+  user_id: 3
+  )
+Task.create!(
+  title: "Soho Socks - colorful life",
+  description: "Choose color palette for the new Soho Socks poster",
+  deadline: '2020-03-30',
+  hours: 4,
+  minutes: 00,
+  urgent: false,
+  team_id: 1,
+  user_id: 2
+  )
+Task.create!(
+  title: "Sales reports - March",
+  description: "Prepare team sales reports for March and send to the Finance Team",
+  deadline: '2020-04-01',
+  hours: 4,
+  minutes: 00,
+  urgent: true,
+  team_id: 1,
+  user_id: 5
+  )
+Task.create!(
+  title: "Monthly team meeting",
+  description: "April strategy, recent developments, introduce new team members.",
+  deadline: '2020-04-02',
+  hours: 1,
+  minutes: 30,
+  urgent: false,
+  team_id: 1,
+  user_id: 1
+  )
+# TASKS - team 2
+Task.create!(
+  title: "Team 2 Task",
+  description: "Team 2 task description",
   deadline: '2020-03-26',
   hours: 0,
   minutes: 15,
