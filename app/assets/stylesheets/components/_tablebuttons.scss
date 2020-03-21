@@ -45,7 +45,6 @@
   transition: opacity 0.3s ease;
   font-weight: bold;
   margin-right: 0 auto;
-  outline: none;
 }
 
 .done-button:hover {
@@ -53,4 +52,6 @@
   text-decoration: none;
   color: $finish-button;
   font-weight: bold;
+  outline: none;
+
 }
