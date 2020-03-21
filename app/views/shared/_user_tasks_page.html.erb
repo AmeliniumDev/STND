@@ -1,0 +1,137 @@
+<div class="container min-height">
+  <div class="page-header">
+    <h1> My Tasks </h1>
+  </div>
+  <div class="tab-headers">
+    <span class="tabs active outstanding" data-id="outstanding">outstanding tasks</span>
+    <span class="tabs completed" data-id="completed">completed tasks</span>
+  </div>
+  <div class="tab-content" id="outstanding">
+    <div class="table">
+      <div class="headers">
+        <h4 class="header-cell header-font content-task-deadline-header">Deadline</h4>
+        <h4 class="header-cell header-font content-task-urgent-header"><i class="fas fa-arrow-circle-up header"></i></h4>
+        <h4 class="header-cell header-font content-task-title-header">Title</h4>
+        <h4 class="header-cell header-font content-task-etc-header"><i class="far fa-clock"></i></h4>
+        <h4 class="header-cell header-font content-task-status-header">Status</h4>
+      </div>
+      <% @tasks.each do |task| %>
+        <div  class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
+          <div class="row-task">
+            <div class="row-cell content-task-deadline task-font">
+              <p><%= task.deadline.strftime("%d-%m-%Y") %></p>
+            </div>
+          <div class="row-cell content-task-urgent task-font">
+            <% if task.urgent? %>
+              <%= link_to team_task_path(@team, task, task: { urgent: false }), method: :put do%>
+                <i class="fas fa-arrow-circle-up"></i>
+              <% end %>
+            <% else %>
+              <%= link_to team_task_path(@team, task, task: { urgent: true }), method: :put do%>
+                <i class="far fa-circle"></i>
+              <% end %>
+            <% end %>
+          </div>
+              <div class="row-cell content-task-title task-font"><%= task.title %></div>
+              <div class="row-cell content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
+              <div class="row-cell content-task-status task-font">
+                <%= link_to team_task_path(@team, task, task: { complete: true }), method: :put do %>
+                 <!--  <p class= "finish-button"> Finish </p> -->
+                  <button class="done-button" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">✓ Done</button>
+                  <!-- <i class="far fa-play-circle"></i> -->
+                  <!-- <span><i class="fas fa-check-square"></i></span> -->
+                <% end %>
+
+              </div>
+          </div>
+        </div>
+        <div  class="collapse div-collapsed" id=<%= "task#{task.id}" %>>
+          <div class="task-description">
+            <%= task.description %>
+          </div>
+          <div class="edit-delete">
+            <a class="" href="#">
+              <i class="fas fa-pencil-alt" data-toggle="modal" data-target="#editModal<%=task.id%>"></i>
+              <%= render "tasks/edit", team: @team, task: task %>
+            </a>
+            <%= link_to team_task_path(@team, task), method: :delete, data: {confirm: "Are you sure?"} do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="tab-content d-none" id="completed">
+    <div class="table">
+      <div class="headers">
+        <h4 class="header-cell header-font content-task-deadline-header">Deadline</h4>
+        <h4 class="header-cell header-font content-task-urgent-header"><i class="fas fa-arrow-circle-up header"></i></h4>
+        <h4 class="header-cell header-font content-task-title-header">Title</h4>
+        <h4 class="header-cell header-font content-task-etc-header"><i class="far fa-clock"></i></h4>
+        <h4 class="header-cell header-font content-task-status-header">Status</h4>
+      </div>
+      <% @completed_tasks.each do |task| %>
+        <div  class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
+          <div class="row-task">
+            <div class="row-cell content-task-deadline task-font">
+              <p><%= task.deadline.strftime("%d-%m-%Y") %></p>
+            </div>
+          <div class="row-cell content-task-urgent task-font">
+            <% if task.urgent? %>
+              <%= link_to team_task_path(@team, task, task: { urgent: false }), method: :put do%>
+                <i class="fas fa-arrow-circle-up"></i>
+              <% end %>
+            <% else %>
+              <%= link_to team_task_path(@team, task, task: { urgent: true }), method: :put do%>
+                <i class="far fa-circle"></i>
+              <% end %>
+            <% end %>
+          </div>
+              <div class="row-cell content-task-title task-font"><%= task.title %></div>
+              <div class="row-cell content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
+              <div class="row-cell content-task-status task-font">
+                <%= link_to team_task_path(@team, task, task: { complete: true }), method: :put do %>
+                 <!--  <p class= "finish-button"> Finish </p> -->
+                  <button class="done-button" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">✓ Done</button>
+                  <!-- <i class="far fa-play-circle"></i> -->
+                  <!-- <span><i class="fas fa-check-square"></i></span> -->
+                <% end %>
+
+              </div>
+          </div>
+        </div>
+        <div  class="collapse div-collapsed" id=<%= "task#{task.id}" %>>
+          <div class="task-description">
+            <%= task.description %>
+          </div>
+          <div class="edit-delete">
+            <a class="" href="#">
+              <i class="fas fa-pencil-alt" data-toggle="modal" data-target="#editModal<%=task.id%>"></i>
+              <%= render "tasks/edit", team: @team, task: task %>
+            </a>
+            <%= link_to team_task_path(@team, task), method: :delete, data: {confirm: "Are you sure?"} do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  const tabs = document.querySelectorAll('.tabs');
+  const tabContents = document.querySelectorAll('.tab-content');
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', (event) => {
+      tabs.forEach(t => t.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      tabContents.forEach((content) => {
+        content.classList.toggle('d-none', content.id !== event.currentTarget.dataset.id);
+      });
+    });
+  })
+</script>
