@@ -40,7 +40,7 @@ class TasksController < ApplicationController
   end
 
   def user_tasks
-    @tasks = Task.where(user: current_user, team: @team, complete: false)
+    @tasks = Task.where(user: current_user, team: @team, complete: false).reorder('deadline ASC', 'urgent DESC', 'etc ASC')
     @completed_tasks = Task.where(user: current_user, team: @team, complete: true)
   end
 
