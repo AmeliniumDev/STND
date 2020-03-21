@@ -1,7 +1,12 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-pages">
-  <%= link_to team_tasks_path(current_user.team), class: "navbar-logo" do %>
-    <%= image_tag "white-logo.png", class: "logo", alt: "alttext" %>
-    <h1> ST&ND </h1>
+  <% if user_signed_in? %>
+    <%= link_to team_tasks_path(current_user.team), class: "navbar-logo" do %>
+      <%= image_tag "white-logo.png", class: "logo", alt: "alttext" %>
+      <h1> ST&ND </h1>
+    <% end %>
+  <% else %>
+      <%= image_tag "white-logo.png", class: "logo", alt: "alttext" %>
+      <h1> ST&ND </h1>
   <% end %>
   <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
