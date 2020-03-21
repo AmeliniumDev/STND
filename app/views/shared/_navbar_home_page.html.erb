@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-home">
   <!-- LOGO -->
-  <div>
+  <div class="navbar-hover-landing">
     <a class="navbar-logo" href="#">
       <%= image_tag "white-logo.png", class: "logo", alt: "alttext" %>
       <h1> ST&ND </h1>
@@ -22,7 +22,7 @@
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, class: "avatar-round dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
-            <i class="fas fa-user" class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ></i>
+            <i class="fas fa-user navbar-hover-landing" class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ></i>
           <% end %>
            <!-- dropdown menu -->
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

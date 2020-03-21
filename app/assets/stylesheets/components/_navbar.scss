@@ -67,7 +67,7 @@ h1 {
 .navbar-logo h1 {
   font-family: "Open Sans";
   color: white;
-  font-size: 24px;
+  font-size: 35px;
   margin: 0px 0px 1.5px 0px;
   padding: 0px 5px;
 }
@@ -81,7 +81,9 @@ h1 {
 }
 .navbar-logo:hover {
   text-decoration: none;
-  text-shadow: 0px -3px 0px rgba(0,0,0,0.3);
+}
+.navbar-hover-landing:hover {
+  filter: drop-shadow(2px 2px 0px #3b3b3b);
 }
 
 .navbar-logo a {
@@ -140,11 +142,12 @@ h1 {
 
 .fa-user:hover {
   color: $navbar-button;
-  text-shadow: 0px -3px 0px rgba(0,0,0,0.3);
+  text-shadow: 0px 3px 0px rgba(0,0,0,0.5);
   font-size: 25px;
 }
 
 .logo {
   width: 35px;
 }
+
 
