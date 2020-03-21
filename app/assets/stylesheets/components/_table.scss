@@ -232,24 +232,28 @@
 
 // ICONS
 
-.fa-trash-alt:before {
+.fa-trash-alt {
   padding: 0px 7px;
-  font-size: 15px;
-  color: lighten($table-header, 5%);
+  font-size: 18px;
+  color: $table-header;
+  opacity: 0.9;
 }
 
 .fa-trash-alt:hover {
   color: $table-header;
+  opacity: 1;
 }
 
-.fa-pencil-alt:before {
-  padding: 0px 7px;
-  font-size: 15px;
-  color: lighten($table-header, 5%);
+.fa-pencil-alt {
+  padding: 0px 15px 7px 0px;
+  font-size: 18px;
+  color: $table-header;
+  opacity: 0.9;
 }
 
 .fa-pencil-alt:hover {
   color: $table-header;
+  opacity: 1;
 }
 
 .fa-play-circle:before {
