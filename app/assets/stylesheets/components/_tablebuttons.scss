@@ -1,6 +1,7 @@
 .fa-arrow-circle-up {
   color: $urgent-button;
   opacity: 0.9;
+  font-size: 18px;
 }
 .fa-arrow-circle-up:hover {
   opacity: 1;
@@ -15,6 +16,10 @@
   // color: #35D6CF;
   color: $urgent-button;
   opacity: 1;
+}
+
+.fa-clock {
+  font-size: 18px;
 }
 
 .header {
@@ -33,8 +38,8 @@
   text-align: center;
   text-decoration: none;
   color: $finish-button;
-  border: 2px solid $urgent-button;
-  padding: 0px;
+  border: 1.3px solid $urgent-button;
+  padding: 1px;
   border-radius: 50px;
   opacity: 0.75;
   transition: opacity 0.3s ease;
