@@ -67,13 +67,13 @@ h1 {
 .navbar-logo h1 {
   font-family: "Open Sans";
   color: white;
-  font-size: 24px;
+  font-size: 35px;
   margin: 0px 0px 1.5px 0px;
   padding: 0px 5px;
 }
 .navbar-logo {
   display: flex;
-  font-size: 24px;
+  font-size: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,7 +81,20 @@ h1 {
 }
 .navbar-logo:hover {
   text-decoration: none;
-  text-shadow: 0px -3px 0px rgba(0,0,0,0.3);
+}
+// landing navbar
+.navbar-hover-landing:hover {
+  filter: drop-shadow(1.5px 1.5px 0px #3b3b3b);
+}
+.navbar-hover-landing-logo:hover {
+  filter: drop-shadow(1px 1px 0px #3b3b3b);
+}
+// normal navbar
+.navbar-hover:hover {
+  filter: drop-shadow(3px 3px 0px black);
+}
+.navbar-hover-logo:hover {
+  filter: drop-shadow(2px 2px 0px black);
 }
 
 .navbar-logo a {
@@ -103,7 +116,7 @@ h1 {
 .fa-chart-line:hover {
   color: $navbar-button;
   // text-shadow: 0px -2px 0px rgba(0,0,0,0.3), 0 0 1px rgba(255,255,255,0.8),0 -1px 1px rgba(255,255,255,0.5);
-  text-shadow: 0px -3px 0px rgba(0,0,0,0.3);
+  // text-shadow: 0px -3px 0px rgba(0,0,0,0.3);
 }
 
 .fa-users {
@@ -116,7 +129,8 @@ h1 {
 }
 .fa-users:hover {
   color: $navbar-button;
-  text-shadow: 0px -3px 0px rgba(0,0,0,0.3);
+  filter: drop-shadow(3px 3px 0px black);
+  // text-shadow: 0px -3px 0px rgba(0,0,0,0.3);
 }
 
 // .fa-tasks {
@@ -130,7 +144,7 @@ h1 {
 
 .fa-plus-circle:hover {
   color: $navbar-button;
-  text-shadow: 0px -3px 0px rgba(0,0,0,0.3);
+  // text-shadow: 0px -3px 0px rgba(0,0,0,0.3);
 }
 
 .fa-user {
@@ -140,11 +154,12 @@ h1 {
 
 .fa-user:hover {
   color: $navbar-button;
-  text-shadow: 0px -3px 0px rgba(0,0,0,0.3);
+  // text-shadow: 0px 3px 0px rgba(0,0,0,0.5);
   font-size: 25px;
 }
 
 .logo {
   width: 35px;
 }
+
 
