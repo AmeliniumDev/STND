@@ -28,6 +28,14 @@
   font-size: x-large;
 }
 
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 0px 0px 10px;
+  margin: 0px;
+}
+
 .navbar {
   height: 55px;
   // z-index: 2;
@@ -91,10 +99,10 @@ h1 {
 }
 // normal navbar
 .navbar-hover:hover {
-  filter: drop-shadow(3px 3px 0px black);
+  filter: drop-shadow(3px 3px 0px #333333);
 }
 .navbar-hover-logo:hover {
-  filter: drop-shadow(2px 2px 0px black);
+  filter: drop-shadow(2px 2px 0px #333333);
 }
 
 .navbar-logo a {
@@ -111,8 +119,8 @@ h1 {
 
 .fa-chart-line {
   color: $navbar-button;
-  font-size: 25px;
-}
+  font-size: 30px;
+}30px
 .fa-chart-line:hover {
   color: $navbar-button;
   // text-shadow: 0px -2px 0px rgba(0,0,0,0.3), 0 0 1px rgba(255,255,255,0.8),0 -1px 1px rgba(255,255,255,0.5);
@@ -121,7 +129,7 @@ h1 {
 
 .fa-users {
   color: $navbar-button;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .fa-users:before {
@@ -139,7 +147,7 @@ h1 {
 
 .fa-plus-circle {
   color: $navbar-button;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .fa-plus-circle:hover {
@@ -149,13 +157,13 @@ h1 {
 
 .fa-user {
   color: $navbar-button;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .fa-user:hover {
   color: $navbar-button;
   // text-shadow: 0px 3px 0px rgba(0,0,0,0.5);
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .logo {
