@@ -5,8 +5,10 @@
       <h1> ST&ND </h1>
     <% end %>
   <% else %>
+  <div class= "navbar-logo" >
       <%= image_tag "white-logo.png", class: "logo", alt: "alttext" %>
       <h1> ST&ND </h1>
+  </div>
   <% end %>
   <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -82,9 +84,7 @@
           </div>
         </li>
       <% else %>
-        <li class="">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
+
       <% end %>
     </ul>
   </div>
