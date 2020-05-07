@@ -1,7 +1,7 @@
 .fa-arrow-circle-up {
   color: $urgent-button;
-  opacity: 0.9;
-  font-size: 18px;
+  opacity: 0.8;
+  font-size: 20px;
 }
 .fa-arrow-circle-up:hover {
   opacity: 1;
@@ -10,7 +10,8 @@
 .fa-circle {
   // color: #35D6CF;
   color: $urgent-button;
-  opacity: 0.9;
+  opacity: 0.8;
+  font-size: 20px;
 }
 .fa-circle:hover {
   // color: #35D6CF;
@@ -19,11 +20,12 @@
 }
 
 .fa-clock {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .header {
   color: white;
+  opacity: 1;
 }
 
 .done-button {
