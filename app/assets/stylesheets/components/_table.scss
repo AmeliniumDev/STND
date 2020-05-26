@@ -46,12 +46,12 @@
   height: 45px;
   padding: 10px;
   background-color: $table-header;
-  box-shadow: 0 3px 4px rgba(0,0,0,.3);
+  box-shadow: 0 3px 4px rgba(0,0,0,.4);
 }
 
 .header-font {
   color: $table-header-text;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bolder;
   text-align: left;
   display: flex;
@@ -120,7 +120,7 @@
   height: 45px;
   background-color: $table-row;
   padding: 10px;
-  box-shadow: 0 3px 4px rgba(0,0,0,.2);
+  box-shadow: 0 3px 4px rgba(0,0,0,.25);
 }
 
 .content-task {
@@ -128,7 +128,7 @@
 }
 
 .task-font {
-  font-size: 16px;
+  font-size: 18px;
   color: $table-row-text;
   display: flex;
   align-items: center;
@@ -215,7 +215,9 @@
   padding: 10px;
   background-color: $task-description-background;
   border-radius: 0px 10px 10px 0px;
-  box-shadow: 0 2px 3px rgba(0,0,0,.2);
+  // box-shadow: 0 2px 3px rgba(0,0,0,.25);
+  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+  // border-right: #83c327 solid;
   // height to match task-description
   // height: 100%;
 }
@@ -227,7 +229,11 @@
   margin-right: 10px;
   background-color: $task-description-background;
   border-radius: 10px 0px 0px 10px;
-  box-shadow: 0 2px 3px rgba(0,0,0,.2);
+  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+}
+
+.task-description-text {
+  padding: 0px 0px 0px 30px;
 }
 
 // ICONS
@@ -258,7 +264,7 @@
 
 .fa-play-circle:before {
   padding: 0px 7px;
-  font-size: 25px;
+  // font-size: 25px;
   color: $start-button;
 }
 

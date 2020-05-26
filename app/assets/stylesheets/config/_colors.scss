@@ -7,7 +7,7 @@ $yellow: #FFC65A;
 $orange: #E67E22;
 $green: #1EDD88;
 $gray: #0E0000;
-$light-gray: #EEF0F2;
+$light-gray: #f5faff;
 $tab-yellow: #f6c65c;
 // $navbar-background: #5158FE;
 // $tabs: #5158FE;
@@ -23,26 +23,26 @@ $landing-button: #F76C6C;
 
 // NAVBAR
 
-$navbar-background: #2E4B96;
+$navbar-background: #107FD8;
 // $navbar-background: #2E4B96;
 $navbar-button: #FFFFFF;
 
 // TABLE
 
 // title
-$table-title-background: #0094C6;
+$table-title-background: #32D8EA;
 $table-title-text: white;
 // view switching
-$tab-active-background: #FFC354;
+$tab-active-background: #FFA500;
 $tab-active-text: white;
-$tab-non-active-background: #F7FCFF;
-$tab-non-active-text: #FFC354;
+$tab-non-active-background: #FFFFFF;
+$tab-non-active-text: #FFA500;
 // table
-$table-header: #0094C6;
+$table-header: #32D8EA;
 $table-header-text: white;
-$table-row: #F7FCFF;
+$table-row: #FFFFFF;
 $table-row-text: #222F38;
-$task-description-background: #E8F0FB;
+$task-description-background: #FFFFFF;
 // $task-description-background: #fcfbf8;
 
 // TASK POPUP
@@ -52,11 +52,55 @@ $popup-background-title: #5158FE;
 
 // SHARED
 
-$body: #EEF0F2;
-$urgent: #f86363;
-$urgent-button: #f86363;
-$start-button: #f86363;
-$finish-button: #f86363;
+$body: #EBEFFF;
+// #edf6ff
+$urgent: #E4032B;
+$urgent-button: #E4032B;
+$start-button: #E4032B;
+$finish-button: #E4032B;
+// $alert-background: #5158FE;
+
+// OLD CODE
+
+// LANDING PAGE
+// $landing-text: white;
+// $landing-button: #F76C6C;
+
+// NAVBAR
+
+// $navbar-background: #2E4B96;
+// $navbar-button: #FFFFFF;
+
+// TABLE
+
+// title
+// $table-title-background: #0094C6;
+// $table-title-text: white;
+// view switching
+// $tab-active-background: #FFC354;
+// $tab-active-text: white;
+// $tab-non-active-background: #F7FCFF;
+// $tab-non-active-text: #FFC354;
+// table
+// $table-header: #0094C6;
+// $table-header-text: white;
+// $table-row: #F7FCFF;
+// $table-row-text: #222F38;
+// $task-description-background: #E8F0FB;
+
+
+// TASK POPUP
+
+// $popup-btn-task: #5158FE;
+// $popup-background-title: #5158FE;
+
+// SHARED
+
+// $body: #EEF0F2;
+// $urgent: #f86363;
+// $urgent-button: #f86363;
+// $start-button: #f86363;
+// $finish-button: #f86363;
 // $alert-background: #5158FE;
 
 

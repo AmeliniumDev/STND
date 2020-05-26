@@ -1,7 +1,13 @@
+.fa-user-table-header {
+  font-size: 20px;
+}
+.fa-user-table-header:hover {
+  font-size: 20px;
+}
 .fa-arrow-circle-up {
   color: $urgent-button;
-  opacity: 0.9;
-  font-size: 18px;
+  opacity: 0.8;
+  font-size: 20px;
 }
 .fa-arrow-circle-up:hover {
   opacity: 1;
@@ -10,7 +16,8 @@
 .fa-circle {
   // color: #35D6CF;
   color: $urgent-button;
-  opacity: 0.9;
+  opacity: 0.8;
+  font-size: 20px;
 }
 .fa-circle:hover {
   // color: #35D6CF;
@@ -19,11 +26,17 @@
 }
 
 .fa-clock {
+  font-size: 20px;
+}
+
+// note sign in task description
+.fa-edit:before {
   font-size: 18px;
 }
 
 .header {
   color: white;
+  opacity: 1;
 }
 
 .done-button {

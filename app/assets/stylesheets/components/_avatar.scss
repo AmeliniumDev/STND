@@ -10,18 +10,45 @@
   // round the edges to a circle with border radius 1/2 container size
   border-radius: 50%;
 }
-.avatar-round:hover {
-  border: transparent 0.5px solid;
+.avatar-navbar {
+  // make a square container
+  width: 40px;
+  height: 40px;
+}
+.avatar-navbar:hover {
+  width: 41px;
+  height: 41px;
 }
 .avatar-small {
   // make a square container
   width: 35px;
   height: 35px;
 }
+.avatar-small:hover {
+  // make a square container
+  width: 40px;
+  height: 40px;
+}
 .avatar-large {
   width: 56px;
   height: 56px;
 }
+.avatar-large:hover {
+  width: 62px;
+  height: 62px;
+}
+.avatar-header {
+  width: 70px;
+  height: 70px;
+  margin: 0px 2px 0px 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+.avatar-header:hover {
+  width: 80px;
+  height: 80px;
+  margin: 0px 0px 0px 0px;
+}
+
 .avatar-bordered {
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
@@ -30,4 +57,11 @@
   border-radius: 0px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+}
+.avatar-table-owner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 0px 0px 0px;
+  margin: 0px;
 }
