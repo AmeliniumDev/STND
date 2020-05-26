@@ -1,6 +1,13 @@
 <div class="container min-height">
-  <div class="page-header">
-    <h1> My Tasks </h1>
+  <div class="page-header-avatars">
+  <% if @user.photo.attached? %>
+        <%= link_to team_user_path(@team, @user) do %>
+          <%= cl_image_tag @user.photo.key, class: "avatar-round avatar-header text-center" %>
+        <% end %>
+        <!-- data-toggle="tooltip" title="Hooray!" -->
+      <% else %>
+        <%= link_to "#{@user.first_name} #{@user.last_name}", team_user_path(@team, @user) %>
+      <% end %>
   </div>
   <div class="tab-headers">
     <span class="tabs active outstanding" data-id="outstanding">outstanding tasks</span>
