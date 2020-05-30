@@ -1,4 +1,5 @@
 <div class="container min-height">
+  <!-- AVATAR OF USER -->
   <div class="page-header-avatars">
   <% if @user.photo.attached? %>
         <%= link_to team_user_path(@team, @user) do %>
@@ -9,12 +10,15 @@
         <%= link_to "#{@user.first_name} #{@user.last_name}", team_user_path(@team, @user) %>
       <% end %>
   </div>
+  <!-- TABS: OUTSTANDING / COMPLETED -->
   <div class="tab-headers">
     <span class="tabs active outstanding" data-id="outstanding">outstanding tasks</span>
     <span class="tabs completed" data-id="completed">completed tasks</span>
   </div>
+  <!-- *** OUTSTANDING TASKS *** -->
   <div class="tab-content" id="outstanding">
     <div class="table">
+      <!-- COLUMN HEADERS -->
       <div class="headers">
         <h4 class="header-cell header-font content-task-deadline-header">Deadline</h4>
         <h4 class="header-cell header-font content-task-urgent-header"><i class="fas fa-arrow-circle-up header"></i></h4>
@@ -22,41 +26,48 @@
         <h4 class="header-cell header-font content-task-etc-header"><i class="far fa-clock"></i></h4>
         <h4 class="header-cell header-font content-task-status-header"><i class="fas fa-spinner"></i></h4>
       </div>
+      <!-- ROWS OF TASKS -->
       <% @tasks.each do |task| %>
         <div  class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
           <div class="row-task">
+            <!-- DEADLINE -->
             <div class="row-cell content-task-deadline task-font">
               <p><%= task.deadline.strftime("%d-%m-%Y") %></p>
             </div>
-          <div class="row-cell content-task-urgent task-font">
-            <% if task.urgent? %>
-              <%= link_to team_task_path(@team, task, task: { urgent: false }), method: :put do%>
-                <i class="fas fa-arrow-circle-up"></i>
-              <% end %>
-            <% else %>
-              <%= link_to team_task_path(@team, task, task: { urgent: true }), method: :put do%>
-                <i class="far fa-circle"></i>
-              <% end %>
-            <% end %>
-          </div>
-              <div class="row-cell content-task-title task-font"><%= task.title %></div>
-              <div class="row-cell content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
-              <div class="row-cell content-task-status task-font">
-                <%= link_to team_task_path(@team, task, task: { complete: true }), method: :put do %>
-                 <!--  <p class= "finish-button"> Finish </p> -->
-                  <button class="done-button" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">✓ Done</button>
-                  <!-- <i class="far fa-play-circle"></i> -->
-                  <!-- <span><i class="fas fa-check-square"></i></span> -->
+            <!-- URGENT -->
+            <div class="row-cell content-task-urgent task-font">
+              <% if task.urgent? %>
+               <%= link_to team_task_path(@team, task, task: { urgent: false }), method: :put do%>
+                  <i class="fas fa-arrow-circle-up"></i>
                 <% end %>
-
-              </div>
+              <% else %>
+                <%= link_to team_task_path(@team, task, task: { urgent: true }), method: :put do%>
+                  <i class="far fa-circle"></i>
+                <% end %>
+              <% end %>
+            </div>
+            <!-- TASK TITLE -->
+            <div class="row-cell content-task-title task-font"><%= task.title %></div>
+            <!-- ESTIMATED TIME TO COMPLETE -->
+            <div class="row-cell content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
+            <!-- DONE? -->
+            <div class="row-cell content-task-status task-font">
+              <%= link_to team_task_path(@team, task, task: { complete: true }), method: :put do %>
+                <button class="done-button" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">✓ Done</button>
+                <!-- <i class="far fa-play-circle"></i> -->
+                <!-- <span><i class="fas fa-check-square"></i></span> -->
+              <% end %>
+            </div>
           </div>
         </div>
+        <!-- TASK DESCRIPTION - COLLAPSE -->
         <div  class="collapse div-collapsed" id=<%= "task#{task.id}" %>>
+          <!-- DESCRIPTION -->
           <div class="task-description">
             <div><i class="fas fa-edit"></i></div>
             <div class="task-description-text"><p><%= task.description %></p></div>
           </div>
+          <!-- EDIT & DELETE TASK -->
           <div class="edit-delete">
             <a class="" href="#">
               <i class="fas fa-pencil-alt" data-toggle="modal" data-target="#editModal<%=task.id%>"></i>
@@ -67,11 +78,14 @@
             <% end %>
           </div>
         </div>
+      <!-- end of "tasks.each do..." -->
       <% end %>
     </div>
   </div>
+  <!-- *** COMPLETED TASKS *** -->
   <div class="tab-content d-none" id="completed">
     <div class="table">
+      <!-- COLUMN HEADERS -->
       <div class="headers">
         <h4 class="header-cell header-font content-task-deadline-header">Deadline</h4>
         <h4 class="header-cell header-font content-task-urgent-header"><i class="fas fa-arrow-circle-up header"></i></h4>
@@ -79,41 +93,48 @@
         <h4 class="header-cell header-font content-task-etc-header"><i class="far fa-clock"></i></h4>
         <h4 class="header-cell header-font content-task-status-header">Status</h4>
       </div>
+      <!-- ROWS OF TASKS -->
       <% @completed_tasks.each do |task| %>
         <div  class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
           <div class="row-task">
+            <!-- DEADLINE - this in the future could be changed into when completed-->
             <div class="row-cell content-task-deadline task-font">
               <p><%= task.deadline.strftime("%d-%m-%Y") %></p>
             </div>
-          <div class="row-cell content-task-urgent task-font">
-            <% if task.urgent? %>
-              <%= link_to team_task_path(@team, task, task: { urgent: false }), method: :put do%>
-                <i class="fas fa-arrow-circle-up"></i>
-              <% end %>
-            <% else %>
-              <%= link_to team_task_path(@team, task, task: { urgent: true }), method: :put do%>
-                <i class="far fa-circle"></i>
-              <% end %>
-            <% end %>
-          </div>
-              <div class="row-cell content-task-title task-font"><%= task.title %></div>
-              <div class="row-cell content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
-              <div class="row-cell content-task-status task-font">
-                <%= link_to team_task_path(@team, task, task: { complete: true }), method: :put do %>
-                 <!--  <p class= "finish-button"> Finish </p> -->
-                  <button class="done-button" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">✓ Done</button>
-                  <!-- <i class="far fa-play-circle"></i> -->
-                  <!-- <span><i class="fas fa-check-square"></i></span> -->
+            <!-- URGENT -->
+            <div class="row-cell content-task-urgent task-font">
+              <% if task.urgent? %>
+                <%= link_to team_task_path(@team, task, task: { urgent: false }), method: :put do%>
+                  <i class="fas fa-arrow-circle-up"></i>
                 <% end %>
-
-              </div>
+              <% else %>
+                <%= link_to team_task_path(@team, task, task: { urgent: true }), method: :put do%>
+                  <i class="far fa-circle"></i>
+                <% end %>
+              <% end %>
+            </div>
+            <!-- TITLE -->
+            <div class="row-cell content-task-title task-font"><%= task.title %></div>
+            <!-- ESTIMATED TIME TO COMPLETE - this could be changed into how long it took to complete -->
+            <div class="row-cell content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
+            <!-- DONE? -->
+            <div class="row-cell content-task-status task-font">
+              <%= link_to team_task_path(@team, task, task: { complete: true }), method: :put do %>
+                <button class="done-button" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">✓ Done</button>
+                <!-- <i class="far fa-play-circle"></i> -->
+                <!-- <span><i class="fas fa-check-square"></i></span> -->
+              <% end %>
+            </div>
           </div>
         </div>
+        <!-- TASK DESCRIPTION - COLLAPSE -->
         <div  class="collapse div-collapsed" id=<%= "task#{task.id}" %>>
+          <!-- DESCRIPTION -->
           <div class="task-description">
             <div><i class="fas fa-edit"></i></div>
             <div class="task-description-text"><p><%= task.description %></p></div>
           </div>
+          <!-- EDIT & DELETE TASK -->
           <div class="edit-delete">
             <a class="" href="#">
               <i class="fas fa-pencil-alt" data-toggle="modal" data-target="#editModal<%=task.id%>"></i>
