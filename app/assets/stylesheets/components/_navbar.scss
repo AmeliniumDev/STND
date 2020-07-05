@@ -1,4 +1,4 @@
-.navbar-lewagon {
+.navbar-stnd {
   justify-content: space-between;
 }
 
@@ -12,22 +12,22 @@
   z-index: 2;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-stnd .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-nav{
+.navbar-nav {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.navbar-lewagon .navbar-brand img {
+.navbar-stnd .navbar-brand img {
   width: 40px;
 }
 
-.navbar-brand {
-  font-size: x-large;
-}
+// .navbar-brand {
+//   font-size: x-large;
+// }
 
 .nav-item {
   display: flex;
@@ -35,6 +35,12 @@
   align-items: center;
   padding: 0px 0px 0px 10px;
   margin: 0px;
+  // Multiple Transition Example: transition: opacity 1s linear, background 500ms ease-out;
+  // transition: color 1s;
+  // -webkit-transition: color 1s;
+  // -moz-transition: color 1s;
+  // -ms-transition: color 1s;
+  // -o-transition: color 1s;
 }
 
 .navbar {
@@ -60,9 +66,9 @@ h1 {
 }
 
 
-.navbar-light .navbar-nav .nav-link:hover {
-  color: white;
-}
+// .navbar-light .navbar-nav .nav-link:hover {
+//   color: white;
+// }
 
 .navbar-light .navbar-nav .nav-link  {
   color: white;
@@ -91,20 +97,14 @@ h1 {
 .navbar-logo:hover {
   text-decoration: none;
 }
-// landing navbar
-.navbar-hover-landing:hover {
-  filter: drop-shadow(1.5px 1.5px 0px #3b3b3b);
-}
-.navbar-hover-landing-logo:hover {
-  filter: drop-shadow(1px 1px 0px #3b3b3b);
-}
-// normal navbar
-.navbar-hover:hover {
-  filter: drop-shadow(3px 3px 0px #333333);
-}
-.navbar-hover-logo:hover {
-  filter: drop-shadow(2px 2px 0px #333333);
-}
+// LANDING PAGE NAVBAR
+// .navbar-hover-landing:hover {
+//   filter: drop-shadow(1.5px 1.5px 0px #3b3b3b);
+// }
+// .navbar-hover-landing-logo:hover {
+//   filter: drop-shadow(1px 1px 0px #3b3b3b);
+// }
+// NORMAL NAVBAR
 
 .navbar-logo a {
   text-decoration: none;
@@ -121,11 +121,9 @@ h1 {
 .fa-chart-line {
   color: $navbar-button;
   font-size: 30px;
-}30px
+}
 .fa-chart-line:hover {
-  color: $navbar-button;
-  // text-shadow: 0px -2px 0px rgba(0,0,0,0.3), 0 0 1px rgba(255,255,255,0.8),0 -1px 1px rgba(255,255,255,0.5);
-  // text-shadow: 0px -3px 0px rgba(0,0,0,0.3);
+  font-size: 32px;
 }
 
 .fa-users {
@@ -136,10 +134,9 @@ h1 {
 .fa-users:before {
   color: $navbar-button;
 }
+
 .fa-users:hover {
-  color: $navbar-button;
-  filter: drop-shadow(3px 3px 0px black);
-  // text-shadow: 0px -3px 0px rgba(0,0,0,0.3);
+  font-size: 32px;
 }
 
 // .fa-tasks {
@@ -152,18 +149,11 @@ h1 {
 }
 
 .fa-plus-circle:hover {
-  color: $navbar-button;
-  // text-shadow: 0px -3px 0px rgba(0,0,0,0.3);
+  font-size: 32px;
 }
 
 .fa-user {
   color: $navbar-button;
-  font-size: 30px;
-}
-
-.fa-user:hover {
-  color: $navbar-button;
-  // text-shadow: 0px 3px 0px rgba(0,0,0,0.5);
   font-size: 30px;
 }
 

@@ -1,7 +1,6 @@
 <div class="container min-height">
+  <!-- AVATARS OF TEAM MEMBERS -->
   <div class="page-header-avatars">
-  <!-- <div class="page-header"> -->
-    <!-- <h1> Team Tasks </h1> -->
     <% @team.users.each do |user| %>
       <% if user.photo.attached? %>
         <%= link_to team_user_path(@team, user) do %>
@@ -13,10 +12,12 @@
       <% end %>
     <% end %>
   </div>
+  <!-- TABS: OUTSTANDING / COMPLETED -->
   <div class="tab-headers">
     <span class="tabs active outstanding" data-id="outstanding">outstanding tasks</span>
     <span class="tabs completed" data-id="completed">completed tasks</span>
   </div>
+  <!-- *** OUTSTANDING TASKS *** -->
   <div class="tab-content" id="outstanding">
     <div class="table">
       <!-- COLUMN HEADERS -->
@@ -27,13 +28,15 @@
         <h4 class="header-cell header-font content-task-etc-header"><i class="far fa-clock"></i></h4>
         <h4 class="header-cell header-font content-task-owner-header"><i class="fas fa-user fa-user-table-header"></i></h4>
       </div>
-        <!-- ROWS OF TASKS -->
-        <% @tasks.each do |task| %>
-          <div class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
-            <div class="row-task">
-              <div class="row-cell content-task-deadline task-font">
-                <p><%= task.deadline.strftime("%d-%m-%Y") %></p>
-              </div>
+      <!-- ROWS OF TASKS -->
+      <% @tasks.each do |task| %>
+        <div class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
+          <div class="row-task">
+            <!-- DEADLINE -->
+            <div class="row-cell content-task-deadline task-font">
+              <p><%= task.deadline.strftime("%d-%m-%Y") %></p>
+            </div>
+            <!-- URGENT -->
             <div class="row-cell content-task-urgent task-font">
               <% if task.urgent? %>
                 <%= link_to team_task_path(@team, task, task: {urgent: false, referrer_page: team_tasks_path(@team)}), method: :put do%>
@@ -45,26 +48,29 @@
                 <% end %>
               <% end %>
             </div>
+            <!-- TASK TITLE -->
             <div class="row-cell content-task-title task-font"><p><%= task.title %></p></div>
+            <!-- ESTIMATED TIME TO COMPLETE -->
             <div class="row-cell content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
             <!-- OWNERS -->
             <div class="row-cell content-task-owner task-font">
-              <div class="dropdown centered">
-                <!-- if task.user.nil? true: "Not Assigend", false: show avatar -->
+            <div class="dropdown centered">
+              <!-- if task.user.nil? true: "Not Assigend" / false: show avatar -->
                 <% if task.user.nil? %>
                   <%= link_to "Not Assigned", edit_user_registration_path, class: "dropdown-toggle links-table-owner no-owner", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <% else %>
-                  <!--checking if user has a photo: true: show avatar, false: show "Name Surname" -->
+                  <!--checking if user has a photo: true: avatar / false: "Name Surname" -->
                   <% if task.user.photo.attached? %>
                     <%= cl_image_tag task.user.photo.key, class: "avatar-round avatar-small dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <% else %>
                     <%= link_to "#{task.user.first_name} #{task.user.last_name}", edit_user_registration_path, class: "dropdown-toggle links-table-owner", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <% end %>
                 <% end %>
-                <!-- showing all team users (avatar / name + surname) in dropdown list -->
+                <!-- dropdown list of users: total of hours of tasks to complete & avatar/name + surname) -->
                 <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
                   <% results = Hash.new %>
                   <% @team.users.each do |user| %>
+                    <!-- total time of outstanding tasks -->
                     <% total_etc = 0 %>
                     <% id = user.id %>
                     <% user.tasks.each do |task1| %>
@@ -74,7 +80,7 @@
                         <% total_etc += 0 %>
                       <% end %>
                     <% end %>
-
+                    <!-- avatars -->
                     <div class="etc-avatar">
                       <% if user.photo.attached? %>
                         <%= link_to team_task_path(@team, task, task: { user_id: user.id}), method: :put, class: "dropdown-item" do %>
@@ -92,11 +98,14 @@
             </div>
           </div>
         </div>
+        <!-- TASK DESCRIPTION - COLLAPSE -->
         <div class="collapse div-collapsed" id=<%= "task#{task.id}" %>>
+          <!-- DESCRIPTION -->
           <div class="task-description">
             <div><i class="fas fa-edit"></i></div>
             <div class="task-description-text"><p><%= task.description %></p></div>
           </div>
+          <!-- EDIT & DELETE TASK -->
           <div class="edit-delete">
             <a class="" href="#">
               <i class="fas fa-pencil-alt" data-toggle="modal" data-target="#editModal<%=task.id%>"></i>
@@ -107,11 +116,14 @@
             <% end %>
           </div>
         </div>
+      <!-- end of "tasks.each do..." -->
       <% end %>
     </div>
   </div>
+  <!-- *** COMPLETED TASKS *** -->
   <div class="tab-content d-none" id="completed">
     <div class="table">
+      <!-- COLUMN HEADERS -->
       <div class="headers">
         <h4 class="header-cell header-font content-task-deadline-header">Deadline</h4>
         <h4 class="header-cell header-font content-task-urgent-header"><i class="fas fa-arrow-circle-up header"></i></h4>
@@ -119,32 +131,38 @@
         <h4 class="header-cell header-font content-task-etc-header"><i class="far fa-clock"></i></h4>
         <h4 class="header-cell header-font content-task-owner-header">Owner</h4>
       </div>
+      <!-- ROWS OF TASKS -->
       <% @completed_tasks.each do |task| %>
         <div class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
           <div class="row-task">
+            <!-- DEADLINE - this in the future could be changed into when completed-->
             <div class="row-cell content-task-deadline task-font">
-              <p><%= task.deadline %></p>
+              <p><%= task.deadline.strftime("%d-%m-%Y") %></p>
             </div>
-          <div class="row-cell content-task-urgent task-font">
-            <% if task.urgent? %>
-              <%= link_to team_task_path(@team, task, task: {urgent: false, referrer_page: team_tasks_path(@team)}), method: :put do%>
-                <i class="fas fa-arrow-circle-up"></i>
+            <!-- URGENT -->
+            <div class="row-cell content-task-urgent task-font">
+              <% if task.urgent? %>
+                <%= link_to team_task_path(@team, task, task: {urgent: false, referrer_page: team_tasks_path(@team)}), method: :put do%>
+                  <i class="fas fa-arrow-circle-up"></i>
+                <% end %>
+              <% else %>
+                <%= link_to team_task_path(@team, task, task: {urgent: true, referrer_page: team_tasks_path(@team)}), method: :put do%>
+                  <i class="far fa-circle"></i>
+                <% end %>
               <% end %>
-            <% else %>
-              <%= link_to team_task_path(@team, task, task: {urgent: true, referrer_page: team_tasks_path(@team)}), method: :put do%>
-                <i class="far fa-circle"></i>
-              <% end %>
-            <% end %>
-          </div>
+            </div>
+            <!-- TITLE -->
             <div class="row-cell content-task-title task-font"><%= task.title %></div>
+            <!-- ESTIMATED TIME TO COMPLETE - this could be changed into how long it took to complete -->
             <div class="row-cell content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
+            <!-- OWNER -->
             <div class="row-cell content-task-owner task-font">
               <div class="nav-item dropdown centered">
-                <!-- if task.user.nil? true: "Not Assigend", false: show avatar -->
+                <!-- if task.user.nil? true: "Not Assigend" / false: avatar -->
                 <% if task.user.nil? %>
                   <%= link_to "Not Assigned", edit_user_registration_path, class: "dropdown-toggle links-table-owner no-owner", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <% else %>
-                  <!--checking if user has a photo: true: show avatar, false: show "Name Surname" -->
+                  <!--checking if user has a photo: true: avatar / false: "Name Surname" -->
                   <% if task.user.photo.attached? %>
                     <%= cl_image_tag task.user.photo.key, class: "avatar-round avatar-small dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <% else %>
@@ -154,11 +172,14 @@
                 <!-- showing all team users (avatar / name + surname) in dropdown list -->
                 <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
                   <% @team.users.each do |user| %>
+                    <!-- checking if user uploaded a photo -->
                     <% if user.photo.attached? %>
+                      <!-- yes: avatar -->
                       <%= link_to team_task_path(@team, task, task: { user_id: user.id}), method: :put, class: "dropdown-item" do %>
                         <%= cl_image_tag user.photo.key, class: "avatar-round avatar-small text-center" %>
                       <% end %>
                     <% else %>
+                      <!-- no: "Name Surname" -->
                       <%= link_to "#{user.first_name} #{user.last_name}", team_task_path(@team, task, task: { user_id: user.id}), method: :put, class: "dropdown-item", data: { toggle: "" }, 'aria-expanded': false %>
                     <% end %>
                   <% end %>
@@ -167,11 +188,14 @@
             </div>
           </div>
         </div>
+        <!-- TASK DESCRIPTION - COLLAPSE -->
         <div class="collapse div-collapsed" id=<%= "task#{task.id}" %>>
+          <!-- DESCRIPTION -->
           <div class="task-description">
             <div><i class="fas fa-edit"></i></div>
             <div class="task-description-text"><p><%= task.description %></p></div>
           </div>
+          <!-- EDIT & DELETE TASK -->
           <div class="edit-delete">
             <a class="" href="#">
               <i class="fas fa-pencil-alt" data-toggle="modal" data-target="#editModal<%=task.id%>"></i>

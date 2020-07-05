@@ -234,13 +234,14 @@
 
 .task-description-text {
   padding: 0px 0px 0px 30px;
+  color: $table-row-text;;
 }
 
 // ICONS
 
 .fa-trash-alt {
   padding: 0px 7px;
-  font-size: 18px;
+  // font-size: 18px;
   color: $table-header;
   opacity: 0.9;
 }
@@ -252,7 +253,7 @@
 
 .fa-pencil-alt {
   padding: 0px 15px 7px 0px;
-  font-size: 18px;
+  // font-size: 18px;
   color: $table-header;
   opacity: 0.9;
 }
@@ -262,17 +263,10 @@
   opacity: 1;
 }
 
-.fa-play-circle:before {
-  padding: 0px 7px;
-  // font-size: 25px;
-  color: $start-button;
-}
-
-.fa-check-square:before {
-  padding: 0px 7px;
-  font-size: 25px;
-  color: $urgent;
-}
+// .fa-play-circle:before {
+//   padding: 0px 7px;
+//   color: $start-button;
+// }
 
 .etc-avatar {
   display: flex;
@@ -286,21 +280,6 @@
 }
 
 .dropdown-menu-right {
-border-radius: 10px;
-border: none;
+  border-radius: 10px;
+  border: none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
