@@ -53,9 +53,9 @@
             <!-- DONE? -->
             <div class="row-cell content-task-status task-font">
               <%= link_to team_task_path(@team, task, task: { complete: true }), method: :put do %>
-                <button class="done-button" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">✓ Done</button>
-                <!-- <i class="far fa-play-circle"></i> -->
-                <!-- <span><i class="fas fa-check-square"></i></span> -->
+                <!-- <button class="done-button" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">✓ Done</button> -->
+                <!-- <i class="far fa-check-square"></i> -->
+                <i class="far fa-square"></i>
               <% end %>
             </div>
           </div>
@@ -91,7 +91,7 @@
         <h4 class="header-cell header-font content-task-urgent-header"><i class="fas fa-arrow-circle-up header"></i></h4>
         <h4 class="header-cell header-font content-task-title-header">Title</h4>
         <h4 class="header-cell header-font content-task-etc-header"><i class="far fa-clock"></i></h4>
-        <h4 class="header-cell header-font content-task-status-header">Status</h4>
+        <h4 class="header-cell header-font content-task-status-header"><i class="fas fa-spinner"></i></h4>
       </div>
       <!-- ROWS OF TASKS -->
       <% @completed_tasks.each do |task| %>
@@ -120,9 +120,8 @@
             <!-- DONE? -->
             <div class="row-cell content-task-status task-font">
               <%= link_to team_task_path(@team, task, task: { complete: true }), method: :put do %>
-                <button class="done-button" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">✓ Done</button>
-                <!-- <i class="far fa-play-circle"></i> -->
-                <!-- <span><i class="fas fa-check-square"></i></span> -->
+                <!-- <button class="done-button" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">✓ Done</button> -->
+                <i class="far fa-check-square"></i>
               <% end %>
             </div>
           </div>

@@ -39,6 +39,33 @@
   opacity: 1;
 }
 
+.fa-check-square {
+  font-size: 20px;
+  color: $green-completed;
+  opacity: 0.8;
+}
+
+.fa-check-square:hover {
+  color: $urgent;
+  opacity: 0.8;
+}
+
+.fa-square {
+  font-size: 20px;
+  color: $urgent;
+  opacity: 0.8;
+}
+
+.fa-square:hover {
+  color: $green-completed;
+  opacity: 0.8;
+}
+
+// .i.far.fa-check-square::before:hover {
+//   color: #83c327;
+//   opacity: 1;
+// }
+
 .done-button {
   // background-color: $finish-button;
   background-color: $table-row;
