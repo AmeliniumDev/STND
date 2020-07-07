@@ -113,13 +113,14 @@
 .row-task{
   // height: 50px;
   display: flex;
+  align-items: center;
   margin-bottom: 10px;
 }
 
 .row-cell {
   height: 45px;
-  background-color: $table-row;
   padding: 10px;
+  background-color: $table-row;
   box-shadow: 0 3px 4px rgba(0,0,0,.25);
 }
 
@@ -127,15 +128,16 @@
   margin: 15px;
 }
 
-.task-font {
-  font-size: 18px;
+.task-font p {
   color: $table-row-text;
+  text-align: left;
   display: flex;
   align-items: center;
+  margin-bottom: 0px;
 }
 
-.task-font p {
-  margin-bottom: 0px;
+.task-font {
+  font-size: 18px;
 }
 
 // INDIVIDUAL TASK ROWS
@@ -193,6 +195,24 @@
   justify-content: center;
 }
 
+// DROPDOWN MENU - OWNER
+
+.etc-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin: 10px 15px 10px 10px;
+}
+
+.etc-avatar p{
+  margin: 0px;
+}
+
+.dropdown-menu-right {
+  border-radius: 10px;
+  border: none;
+}
+
 // TASK DESCRIPTION - COLLAPSED
 
 .div-collapsed {
@@ -236,50 +256,4 @@
   padding: 0px 0px 0px 30px;
   color: $table-row-text;;
 }
-
-// ICONS
-
-.fa-trash-alt {
-  padding: 0px 7px;
-  // font-size: 18px;
-  color: $table-header;
-  opacity: 0.9;
-}
-
-.fa-trash-alt:hover {
-  color: $table-header;
-  opacity: 1;
-}
-
-.fa-pencil-alt {
-  padding: 0px 15px 7px 0px;
-  // font-size: 18px;
-  color: $table-header;
-  opacity: 0.9;
-}
-
-.fa-pencil-alt:hover {
-  color: $table-header;
-  opacity: 1;
-}
-
-// .fa-play-circle:before {
-//   padding: 0px 7px;
-//   color: $start-button;
-// }
-
-.etc-avatar {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  margin: 10px 15px 10px 10px;
-}
-
-.etc-avatar p{
-  margin: 0px;
-}
-
-.dropdown-menu-right {
-  border-radius: 10px;
-  border: none;
-}
+// ICONS - in _tablebuttons.scss

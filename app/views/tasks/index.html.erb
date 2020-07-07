@@ -33,11 +33,11 @@
         <div class="" data-toggle="collapse" aria-expanded="true"  data-target=<%= "#task#{task.id}" %> >
           <div class="row-task">
             <!-- DEADLINE -->
-            <div class="row-cell content-task-deadline task-font">
+            <div class="row-cell task-font content-task-deadline">
               <p><%= task.deadline.strftime("%d-%m-%Y") %></p>
             </div>
             <!-- URGENT -->
-            <div class="row-cell content-task-urgent task-font">
+            <div class="row-cell task-font content-task-urgent">
               <% if task.urgent? %>
                 <%= link_to team_task_path(@team, task, task: {urgent: false, referrer_page: team_tasks_path(@team)}), method: :put do%>
                   <i class="fas fa-arrow-circle-up"></i>
@@ -49,11 +49,11 @@
               <% end %>
             </div>
             <!-- TASK TITLE -->
-            <div class="row-cell content-task-title task-font"><p><%= task.title %></p></div>
+            <div class="row-cell task-font content-task-title"><p><%= task.title %></p></div>
             <!-- ESTIMATED TIME TO COMPLETE -->
-            <div class="row-cell content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
+            <div class="row-cell task-font content-task-etc"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
             <!-- OWNERS -->
-            <div class="row-cell content-task-owner task-font">
+            <div class="row-cell task-font content-task-owner">
             <div class="dropdown centered">
               <!-- if task.user.nil? true: "Not Assigend" / false: show avatar -->
                 <% if task.user.nil? %>
@@ -61,7 +61,7 @@
                 <% else %>
                   <!--checking if user has a photo: true: avatar / false: "Name Surname" -->
                   <% if task.user.photo.attached? %>
-                    <%= cl_image_tag task.user.photo.key, class: "avatar-round avatar-small dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <%= cl_image_tag task.user.photo.key, class: "avatar-round avatar-medium dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <% else %>
                     <%= link_to "#{task.user.first_name} #{task.user.last_name}", edit_user_registration_path, class: "dropdown-toggle links-table-owner", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <% end %>
@@ -164,7 +164,7 @@
                 <% else %>
                   <!--checking if user has a photo: true: avatar / false: "Name Surname" -->
                   <% if task.user.photo.attached? %>
-                    <%= cl_image_tag task.user.photo.key, class: "avatar-round avatar-small dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <%= cl_image_tag task.user.photo.key, class: "avatar-round avatar-medium dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <% else %>
                     <%= link_to "#{task.user.first_name} #{task.user.last_name}", edit_user_registration_path, class: "dropdown-toggle links-table-owner", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <% end %>

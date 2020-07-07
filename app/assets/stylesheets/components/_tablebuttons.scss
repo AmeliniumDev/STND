@@ -1,14 +1,31 @@
+// HEADERS
+
+.fa-arrow-circle-up.header {
+  color: white;
+  opacity: 1;
+}
+
 .fa-user-table-header {
   font-size: 20px;
 }
+
 .fa-user-table-header:hover {
   font-size: 20px;
 }
+
+.fa-clock {
+  font-size: 20px;
+}
+
+// ROWS
+
 .fa-arrow-circle-up {
   color: $urgent-button;
   opacity: 0.8;
   font-size: 20px;
 }
+
+
 .fa-arrow-circle-up:hover {
   opacity: 1;
 }
@@ -25,19 +42,37 @@
   opacity: 1;
 }
 
-.fa-clock {
-  font-size: 20px;
-}
+// TASK DESCRIPTION
 
-// note sign in task description
+// icon in the top left corner in the task description
 .fa-edit:before {
   font-size: 18px;
 }
 
-.header {
-  color: white;
+.fa-trash-alt {
+  color: $table-header;
+  opacity: 0.8;
+  font-size: 17px;
+}
+
+.fa-trash-alt:hover {
+  color: $table-header;
   opacity: 1;
 }
+
+.fa-pencil-alt {
+  padding: 0px 15px 7px 0px;
+  color: $table-header;
+  opacity: 0.8;
+  font-size: 17px;
+}
+
+.fa-pencil-alt:hover {
+  color: $table-header;
+  opacity: 1;
+}
+
+// INDIVIDUAL VIEW - COMPLETED
 
 .fa-check-square {
   font-size: 20px;
@@ -61,37 +96,44 @@
   opacity: 0.8;
 }
 
+// OLD - not in use
+
 // .i.far.fa-check-square::before:hover {
 //   color: #83c327;
 //   opacity: 1;
 // }
 
-.done-button {
-  // background-color: $finish-button;
-  background-color: $table-row;
-  // color: white;
-  // border-radius: 3px;
-  // border-color: $finish-button;
-  // opacity: 0.9;
-  width: 80px;
-  height: 28px;
-  text-align: center;
-  text-decoration: none;
-  color: $finish-button;
-  border: 1.3px solid $urgent-button;
-  padding: 1px;
-  border-radius: 50px;
-  opacity: 0.75;
-  transition: opacity 0.3s ease;
-  font-weight: bold;
-  margin-right: 0 auto;
-}
 
-.done-button:hover {
-  opacity: 1;
-  text-decoration: none;
-  color: $finish-button;
-  font-weight: bold;
-  outline: none;
+// .fa-play-circle:before {
+//   padding: 0px 7px;
+//   color: $start-button;
+// }
 
-}
+// .done-button {
+//   // background-color: $finish-button;
+//   background-color: $table-row;
+//   // color: white;
+//   // border-radius: 3px;
+//   // border-color: $finish-button;
+//   // opacity: 0.9;
+//   width: 80px;
+//   height: 28px;
+//   text-align: center;
+//   text-decoration: none;
+//   color: $finish-button;
+//   border: 1.3px solid $urgent-button;
+//   padding: 1px;
+//   border-radius: 50px;
+//   opacity: 0.75;
+//   transition: opacity 0.3s ease;
+//   font-weight: bold;
+//   margin-right: 0 auto;
+// }
+
+// .done-button:hover {
+//   opacity: 1;
+//   text-decoration: none;
+//   color: $finish-button;
+//   font-weight: bold;
+//   outline: none;
+// }

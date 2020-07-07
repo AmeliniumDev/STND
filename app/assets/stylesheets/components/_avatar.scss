@@ -12,22 +12,30 @@
 }
 .avatar-navbar {
   // make a square container
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
 }
 .avatar-navbar:hover {
-  width: 42px;
-  height: 42px;
+  width: 47px;
+  height: 47px;
 }
 .avatar-small {
   // make a square container
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
 }
 .avatar-small:hover {
   // make a square container
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
+}
+.avatar-medium {
+  width: 42px;
+  height: 42px;
+}
+.avatar-medium:hover {
+  width: 44px;
+  height: 44px;
 }
 .avatar-large {
   width: 56px;
