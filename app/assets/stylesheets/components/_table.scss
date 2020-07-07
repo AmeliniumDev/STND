@@ -130,11 +130,14 @@
 
 .task-font p {
   color: $table-row-text;
-  font-size: 18px;
   text-align: left;
   display: flex;
   align-items: center;
   margin-bottom: 0px;
+}
+
+.task-font {
+  font-size: 18px;
 }
 
 // INDIVIDUAL TASK ROWS

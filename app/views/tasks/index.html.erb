@@ -61,7 +61,7 @@
                 <% else %>
                   <!--checking if user has a photo: true: avatar / false: "Name Surname" -->
                   <% if task.user.photo.attached? %>
-                    <%= cl_image_tag task.user.photo.key, class: "avatar-round avatar-small dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <%= cl_image_tag task.user.photo.key, class: "avatar-round avatar-medium dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <% else %>
                     <%= link_to "#{task.user.first_name} #{task.user.last_name}", edit_user_registration_path, class: "dropdown-toggle links-table-owner", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <% end %>
@@ -164,7 +164,7 @@
                 <% else %>
                   <!--checking if user has a photo: true: avatar / false: "Name Surname" -->
                   <% if task.user.photo.attached? %>
-                    <%= cl_image_tag task.user.photo.key, class: "avatar-round avatar-small dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <%= cl_image_tag task.user.photo.key, class: "avatar-round avatar-medium dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <% else %>
                     <%= link_to "#{task.user.first_name} #{task.user.last_name}", edit_user_registration_path, class: "dropdown-toggle links-table-owner", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <% end %>
