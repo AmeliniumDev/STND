@@ -1,14 +1,18 @@
 <div class="container min-height">
   <!-- AVATAR OF USER -->
   <div class="page-header-avatars">
-  <% if @user.photo.attached? %>
+    <!-- @user.nil? it's only true when we choose My Tasks in the dropdown menu in the navbar -->
+    <% if @user.nil? %>
+      <% @user = current_user %>
+    <% end %>
+    <% if @user.photo.attached? %>
         <%= link_to team_user_path(@team, @user) do %>
           <%= cl_image_tag @user.photo.key, class: "avatar-round avatar-header text-center" %>
         <% end %>
         <!-- data-toggle="tooltip" title="Hooray!" -->
       <% else %>
         <%= link_to "#{@user.first_name} #{@user.last_name}", team_user_path(@team, @user) %>
-      <% end %>
+    <% end %>
   </div>
   <!-- TABS: OUTSTANDING / COMPLETED -->
   <div class="tab-headers">
@@ -119,7 +123,7 @@
             <div class="row-cell content-task-etc task-font"><p><%= task.hours.to_s + "h" + " " + task.minutes.to_s + "min"  %></p></div>
             <!-- DONE? -->
             <div class="row-cell content-task-status task-font">
-              <%= link_to team_task_path(@team, task, task: { complete: true }), method: :put do %>
+              <%= link_to team_task_path(@team, task, task: { complete: false }), method: :put do %>
                 <!-- <button class="done-button" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">✓ Done</button> -->
                 <i class="far fa-check-square"></i>
               <% end %>
